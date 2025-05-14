@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: black --default;
+}
+
+/* colors */
+/* 
+#106EBE
+#0088ff
+#014581
+*/
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  background: linear-gradient(
+    #000000 0%,
+    /* #1e1e1e 50%, */
+    #0059ff50 50%,
+    #000000 100%
+  );
+  min-height: 100vh;
+  font-family: "Cascadia Code", sans-serif;
+}
+
+.bg-blue {
+  background-color: #106EBE;
+  
+    &:hover {
+      background-color: #014581;
+    }
+}
+
+.text-blue {
+  color: #0088ff;
+}
+
+.nav-link {
+  background-color: transparent;
+  &:hover{
+    background-color: #00000030;
+  }
+  &:active {
+    background-color: #00000060;
+  }
+}
+
+.linear-gradient-blue {
+  color:#0088ff;
+  text-shadow: 0.5px 0.5px 25px #0088ff50;
+}
