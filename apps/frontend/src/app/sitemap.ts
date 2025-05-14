@@ -20,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/curriculo}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/curriculo`,
       lastModified: new Date(),
     },
     ...projectUrls
