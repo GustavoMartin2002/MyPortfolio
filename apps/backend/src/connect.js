@@ -5,10 +5,10 @@ dotenv.config() // loading .env
 
 export default async function connectDB() {
   try {
-    const mongoURI = process.env.MONGO_URI
+    const mongoURI = process.env.MONGODB_URI
 
     if (!mongoURI) {
-      console.error("Erro: A variável de ambiente MONGO_URI não está definida.")
+      console.error("Erro: A variável de ambiente MONGODB_URI não está definida.")
       process.exit(1) // exit
     }
 

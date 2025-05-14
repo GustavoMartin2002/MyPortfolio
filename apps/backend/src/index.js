@@ -24,7 +24,7 @@ try {
       }))
 
       await fastify.register(projectRoutes) // register routes(projects)
-      fastify.listen({ port: process.env.PORT }) // run fastify
+      fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' }) // run fastify
       console.log(`http://localhost:${process.env.PORT}`)
     });
 } catch (err) {
