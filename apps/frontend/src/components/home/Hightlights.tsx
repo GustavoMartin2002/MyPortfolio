@@ -13,12 +13,9 @@ export default function Highlights() {
   if (loading) {
     return (
       <section 
-        className="bg-[#00000050] border-[#087ec360] border rounded-lg py-10 my-20 w-[80%] mx-auto flex flex-col justify-center items-center
+        className="py-10 my-20 w-[80%] mx-auto flex flex-col justify-center items-center
         max-sm:w-[90%] max-[450px]:px-5"
       >
-      <h3 className="text-3xl text-shadow-lg font-bold rounded-full px-5 py-1 max-lg:text-lg">
-        Destaques
-      </h3>
       <PointsLoading/>
     </section>
     )
@@ -26,26 +23,34 @@ export default function Highlights() {
     
   if (error) {
     return (
-      <section 
+      <motion.section
+        variants={fadeIn("", 0.2)}
+        initial={"hidden"}
+        whileInView={"show"}
+        viewport={{once: true, amount: 0}}
         className="bg-[#00000050] border-[#087ec360] border rounded-lg py-10 my-20 w-[80%] mx-auto flex flex-col justify-center items-center
         max-sm:w-[90%] max-[450px]:px-5"
       >
         <h3 className="text-3xl text-shadow-lg font-bold rounded-full px-5 py-1 max-lg:text-lg">Destaques</h3>
         <ErrorProjects erro={error}/>
-      </section>
+      </motion.section>
     )
   }
 
   if (latestProjects.length === 0) {
     return (
-      <section
+      <motion.section
+        variants={fadeIn("", 0.2)}
+        initial={"hidden"}
+        whileInView={"show"}
+        viewport={{once: true, amount: 0}}
         className="min-h-screen bg-[#00000050] border-[#087ec360] border rounded-lg py-10 my-20 w-[80%] mx-auto flex flex-col justify-cente items-center max-sm:w-[90%] max-[450px]:px-5"
       >
         <h3 className="text-3xl text-shadow-lg font-bold rounded-full px-5 py-1 max-lg:text-lg">Destaques</h3>
         <div className="m-auto">
           <h5 className="text-lg text-center font-light max-sm:text-xs">Não há projetos disponíveis no momento.</h5>
         </div>
-      </section>
+      </motion.section>
     )
   }
 

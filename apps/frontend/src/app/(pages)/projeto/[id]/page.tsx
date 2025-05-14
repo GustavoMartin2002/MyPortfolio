@@ -1,6 +1,6 @@
 'use client'
 
-import React, { use } from "react"
+import React, { use, useState } from "react"
 import useProject from "@/components/hooks/useProject"
 import ErrorProjects from "@/components/ErrorProjects"
 import Image from "next/image"
@@ -11,6 +11,7 @@ import PointsLoading from "@/components/PointsLoading"
 export default function ProjectPage({ params }: { params:Promise<{id: string}> }) {
   const { id } =  use(params)
   const { project, loading, error } = useProject(id)
+  const [isLoading, setIsLoading] = useState(true)
 
   if (loading) {
     return (
@@ -56,15 +57,22 @@ export default function ProjectPage({ params }: { params:Promise<{id: string}> }
           variants={fadeIn("", 0.2)}
           initial={"hidden"}
           animate={"show"}
+          className="relative"
         >
+          { isLoading && (
+            <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
+              <span className="loading loading-spinner loading-md"></span>
+            </div>
+          )}
           <Image
-            className="w-auto h-auto rounded-xs my-10 shadow-2xl
-            max-md:my-5"
+            className={`w-auto h-auto rounded-xs my-10 shadow-2xl
+            max-md:my-5 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
             src={project.image}
             alt={"Projeto"}
             width={1920}
             height={1080}
             priority={true}
+            onLoad={() => setIsLoading(false)}
           />
         </motion.div>
         

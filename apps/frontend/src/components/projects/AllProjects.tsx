@@ -7,13 +7,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
+import { useState } from "react";
 
 export default function AllProjects() {
-  const { projects, loading, error } = useAllProjects();
+  const { projects, loading, error } = useAllProjects()
+  const [isLoading, setIsLoading] = useState(true)
 
   if (loading) {
     return (
-      <section className="w-full max-h-[80vh]">
+      <section className="w-full max-h-screen">
         <PointsLoading/>
       </section>
     )
@@ -21,15 +23,21 @@ export default function AllProjects() {
 
   if (error) {
     return (
-      <section className="w-full max-h-[80vh]">
+      <motion.section
+        variants={fadeIn("", 0.2)}
+        initial={"hidden"}
+        whileInView={"show"}
+        viewport={{once: true, amount: 0}}
+        className="w-full max-h-screen"
+      >
         <ErrorProjects erro={error}/>
-      </section>
+      </motion.section>
     )
   }
 
   if(projects.length === 0) {
     return (
-      <section className="min-h-[80vh] flex justify-center items-center">
+      <section className="min-h-screen flex justify-center items-center">
         <h5 className="text-lg text-center font-light max-sm:text-xs">Não há projetos disponíveis no momento.</h5>
       </section>
     )
@@ -49,14 +57,20 @@ export default function AllProjects() {
           className="snap-center flex flex-col bg-[#00000050] border border-[#087ec361] rounded-md shadow-lg my-7 w-[600px] h-auto mx-auto
           max-sm:w-[90%]"
         >
-          <figure className="p-10 max-sm:p-6">
+          <figure className="p-10 max-sm:p-6 relative">
+            { isLoading && (
+              <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
+                <span className="loading loading-spinner loading-md"></span>
+              </div>
+            )}
             <Image
-              className="w-[1920px] h-auto m-auto rounded-sm"
+              className={`w-[1920px] h-auto m-auto rounded-sm ${isLoading ? 'opacity-0' : 'opacity-100'}`}
               src={ project.image }
               width={1920}
               height={1080}
               alt={"Projeto"}
               priority={true}
+              onLoad={() => setIsLoading(false)}
             />
           </figure>
 

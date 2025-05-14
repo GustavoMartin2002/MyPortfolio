@@ -18,7 +18,7 @@ try {
 
       // Use middleware cors
       fastify.use(cors({
-        origin: process.env.ORIGIN || process.env.LOCAL, // allows origin
+        origin: [process.env.ORIGIN, process.env.LOCAL], // allows origin
         methods: ['GET'], // HTTP allowed methods 
         allowedHeaders: ['Content-Type'], // allowed Headers
       }))
