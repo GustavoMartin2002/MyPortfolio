@@ -1,4 +1,8 @@
 # config env
 .env
 
+# jest
 coverage
+
+# node
+node_modules
