@@ -114,8 +114,6 @@ describe('ProjectController', () => {
 
     await projectController.getAllProjects(request, reply);
 
-
-
     const result = reply.send.mock.calls[0][0];
     expect(reply.status).toHaveBeenCalledWith(200);
     expect(result).toHaveLength(1);

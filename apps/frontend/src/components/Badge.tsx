@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface BadgeProps {
   link: string
@@ -28,5 +28,5 @@ export default function Badge(props: BadgeProps) {
       />
       <span className="text-sm text-center font-medium mt-2 max-sm:text-xs">{ props.name }</span>
     </motion.a>
-  )
+  );
 }

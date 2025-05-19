@@ -10,5 +10,5 @@ export default function Collapse(props: CollapseProps) {
       <div className="collapse-title font-semibold">{props.title}</div>
       <div className="collapse-content text-sm">{props.text}</div>
     </div>
-  )
+  );
 }

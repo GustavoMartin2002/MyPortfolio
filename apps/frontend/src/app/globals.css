@@ -29,7 +29,6 @@ body {
 
 .bg-blue {
   background-color: #106EBE;
-  
     &:hover {
       background-color: #014581;
     }
@@ -52,4 +51,18 @@ body {
 .linear-gradient-blue {
   color:#0088ff;
   text-shadow: 0.5px 0.5px 25px #0088ff50;
+}
+
+.background-home {
+  background: url('/background-home.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background-projects {
+  background: url('/background-projects.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

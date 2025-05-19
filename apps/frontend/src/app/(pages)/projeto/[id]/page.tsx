@@ -1,24 +1,22 @@
-'use client'
+'use client';
 
-import React, { use, useState } from "react"
-import useProject from "@/components/hooks/useProject"
-import ErrorProjects from "@/components/ErrorProjects"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { fadeIn } from "@/utils/variant"
-import PointsLoading from "@/components/PointsLoading"
+import React, { use, useState } from "react";
+import useProject from "@/components/hooks/useProject";
+import ErrorProjects from "@/components/ErrorProjects";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/variant";
+import LoadingProject from "./loading";
 
 export default function ProjectPage({ params }: { params:Promise<{id: string}> }) {
-  const { id } =  use(params)
-  const { project, loading, error } = useProject(id)
-  const [isLoading, setIsLoading] = useState(true)
+  const { id } =  use(params);
+  const { project, loading, error } = useProject(id);
+  const [isLoading, setIsLoading] = useState(true);
 
   if (loading) {
     return (
-      <section className="min-h-screen flex flex-col justify-center w-full">
-        <PointsLoading/>
-      </section>
-    )
+      <LoadingProject/>
+    );
   }
 
   if (error) {
@@ -26,15 +24,15 @@ export default function ProjectPage({ params }: { params:Promise<{id: string}> }
       <section className="min-h-screen flex flex-col justify-center w-full">
         <ErrorProjects erro={error}/>
       </section>
-    )
+    );
   }
 
-  if(!project) {
+  if (!project) {
     return (
       <section className="min-h-screen flex flex-col justify-center w-full">
         <ErrorProjects erro={"ID do projeto invalido."}/>
       </section>
-    )
+    );
   }
 
   return (
@@ -170,5 +168,5 @@ export default function ProjectPage({ params }: { params:Promise<{id: string}> }
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

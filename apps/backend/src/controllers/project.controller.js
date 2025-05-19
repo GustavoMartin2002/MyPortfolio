@@ -8,7 +8,7 @@ export default class ProjectController {
       const newProject = new Project({
         _id: new mongoose.Types.ObjectId(),
         ...request.body,
-      }) // create new project
+      }); // create new project
 
       const saveProject = await newProject.save(); // save project
       reply.status(201).send(saveProject); // 201 success
@@ -16,14 +16,14 @@ export default class ProjectController {
       reply.status(500).send({
         message: 'Erro ao Criar Projeto.',
         error: error.message,
-      }) // 500 server error
+      }); // 500 server error
     }
   }
 
   // GET - READ
   async getAllProjects(request, reply) {
     try {
-      const search = request.query.search || ''  // get project or all projects
+      const search = request.query.search || '';  // get project or all projects
       const projects = await Project.find({
         $or: [
           { name: { $regex: search, $options: 'i' } }, // search for name
@@ -36,7 +36,7 @@ export default class ProjectController {
       reply.status(500).send({
         message: 'Erro ao Buscar Projeto.',
         error: error.message,
-      }) // 500 server error
+      }); // 500 server error
     }
   }
 
@@ -59,47 +59,47 @@ export default class ProjectController {
   // PATCH - UPDATE
   async updateProject(request, reply) {
     try {
-      const projectId = request.params.id // get params for id
+      const projectId = request.params.id; // get params for id
       const updateProject = await Project.findByIdAndUpdate(
         projectId, 
         request.body,
         {
           new: true,
         },
-      )
+      );
       
       if (!updateProject) {
         return reply.status(404).send({
           message: "Projeto Não Encontrado.",
-        }) // 404 not found
+        }); // 404 not found
       }
 
-      reply.status(200).send(updateProject) // 200 ok
+      reply.status(200).send(updateProject); // 200 ok
     } catch (error) {
       reply.status(500).send({
         message: "Erro ao Atualizar Projeto.",
         error: error.message,
-      }) // 500 server error
+      }); // 500 server error
     }
   }
   // DLETE - REMOVE
   async removeProject(request, reply) {
     try {
-      const projectId = request.params.id
+      const projectId = request.params.id;
       const deleteProject = await Project.findByIdAndDelete(projectId);
 
       if (!deleteProject) {
         reply.status(404).send({
           message: 'Projeto Não Encontrado.'
-        })
+        });
       }
 
-      reply.status(204).send() // no content and success
+      reply.status(204).send(); // no content and success
     } catch (error) {
       reply.status(500).send({
         message: 'Erro ao Deletar Projeto.',
         error: error.message,
-      })
+      });
     }
   }
 }

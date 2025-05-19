@@ -16,5 +16,5 @@ export const fadeIn = (direction: string, delay: number) => {
         ease: "easeInOut",
       }
     }
-  }
-}
+  };
+};

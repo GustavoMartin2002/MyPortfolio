@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import PointsLoading from "../PointsLoading";
 import ErrorProjects from "../ErrorProjects";
@@ -18,7 +18,7 @@ export default function Highlights() {
       >
       <PointsLoading/>
     </section>
-    )
+    );
   }
     
   if (error) {
@@ -34,7 +34,7 @@ export default function Highlights() {
         <h3 className="text-3xl text-shadow-lg font-bold rounded-full px-5 py-1 max-lg:text-lg">Destaques</h3>
         <ErrorProjects erro={error}/>
       </motion.section>
-    )
+    );
   }
 
   if (latestProjects.length === 0) {
@@ -51,7 +51,7 @@ export default function Highlights() {
           <h5 className="text-lg text-center font-light max-sm:text-xs">Não há projetos disponíveis no momento.</h5>
         </div>
       </motion.section>
-    )
+    );
   }
 
   return (
@@ -61,7 +61,7 @@ export default function Highlights() {
       whileInView={"show"}
       viewport={{once: true, amount: 0}}
       className="bg-[#00000050] border-[#087ec360] border rounded-lg py-10 my-20 w-[80%] mx-auto flex flex-col justify-center items-center
-      max-sm:w-[90%] max-[450px]:px-5"
+      max-sm:w-[90%] max-[480px]:px-5 max-[480px]:pb-0"
     >
       <h3 className="text-3xl text-shadow-lg font-bold rounded-full px-5 py-1 max-lg:text-lg">
         Destaques
@@ -76,5 +76,5 @@ export default function Highlights() {
         )) }
       </div>
     </motion.section>
-  )
+  );
 }

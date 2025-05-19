@@ -1,4 +1,4 @@
-import Badge from "../Badge"
+import Badge from "../Badge";
 
 export default function ListBackend() {
   const technologies = [
@@ -32,7 +32,7 @@ export default function ListBackend() {
       image: "/techStack/jest.svg",
       name: "Jest",
     },
-  ]
+  ];
 
   return (
     <div
@@ -43,5 +43,5 @@ export default function ListBackend() {
         <Badge key={tech.name} link={tech.link} image={tech.image} name={tech.name}/>
       )) }
     </div>
-  )
+  );
 }

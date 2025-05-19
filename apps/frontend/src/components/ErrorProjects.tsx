@@ -8,5 +8,5 @@ export default function ErrorProjects(props: { erro: unknown }) {
         <span>{props.erro instanceof Error ? props.erro.message : String(props.erro)}</span>
       </div>
     </section>
-  )
+  );
 }

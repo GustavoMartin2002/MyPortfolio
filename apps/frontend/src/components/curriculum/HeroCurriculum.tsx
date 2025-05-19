@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { fadeIn } from "@/utils/variant"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/variant";
 
 export default function HeroCurriculum() {
   return (
@@ -50,5 +50,5 @@ export default function HeroCurriculum() {
         </a>
       </div>
     </motion.section>
-  )
+  );
 }

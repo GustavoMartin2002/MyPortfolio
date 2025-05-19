@@ -46,5 +46,5 @@ export default async function LoadingHome() {
         <div className="w-[30%] h-[302px] rounded-lg skeleton max-xl:w-full max-xl:h-52"></div>
       </section>
     </>
-  )
+  );
 }

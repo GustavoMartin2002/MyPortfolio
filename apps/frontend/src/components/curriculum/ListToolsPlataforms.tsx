@@ -1,4 +1,4 @@
-import Badge from "../Badge"
+import Badge from "../Badge";
 
 export default function ListToolsPlataforms() {
   const technologies = [
@@ -17,7 +17,7 @@ export default function ListToolsPlataforms() {
       image: "/techStack/aws.svg",
       name: "AWS",
     },
-  ]
+  ];
 
   return (
     <div
@@ -28,5 +28,5 @@ export default function ListToolsPlataforms() {
         <Badge key={tech.name} link={tech.link} image={tech.image} name={tech.name}/>
       )) }
     </div>
-  )
+  );
 }

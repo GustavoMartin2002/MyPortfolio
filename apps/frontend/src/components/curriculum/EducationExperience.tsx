@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { fadeIn } from "@/utils/variant"
-import { motion } from "framer-motion"
+import { fadeIn } from "@/utils/variant";
+import { motion } from "framer-motion";
 
 export default function EducationExperience() {
   return (
@@ -76,5 +76,5 @@ export default function EducationExperience() {
         </ul>
       </motion.section>      
     </section>
-  )
+  );
 }

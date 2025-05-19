@@ -9,5 +9,5 @@ export default function ProjectsPage() {
       <Divider title={"Todos Projetos"}/>
       <AllProjects/>
     </>
-  )
+  );
 }

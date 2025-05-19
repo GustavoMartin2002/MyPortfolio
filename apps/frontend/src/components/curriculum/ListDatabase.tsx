@@ -1,4 +1,4 @@
-import Badge from "../Badge"
+import Badge from "../Badge";
 
 export default function ListDatabase() {
   const technologies = [
@@ -22,7 +22,7 @@ export default function ListDatabase() {
       image: "/techStack/firebase.svg",
       name: "Firebase",
     },
-  ]
+  ];
 
   return (
     <div
@@ -33,5 +33,5 @@ export default function ListDatabase() {
         <Badge key={tech.name} link={tech.link} image={tech.image} name={tech.name}/>
       )) }
     </div>
-  )
+  );
 }

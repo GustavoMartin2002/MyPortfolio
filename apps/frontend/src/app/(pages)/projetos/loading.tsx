@@ -20,5 +20,5 @@ export default async function LoadingProjects() {
         <div className="rounded-md skeleton my-7 mx-auto w-[600px] h-[600px] max-sm:w-[90%] max-sm:h-[450px]"></div>
       </section>
     </>
-  )
+  );
 }

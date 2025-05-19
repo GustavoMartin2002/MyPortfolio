@@ -1,17 +1,11 @@
-'use client'
+'use client';
 
-import { fadeIn } from "@/utils/variant"
-import { motion } from "framer-motion"
+import { fadeIn } from "@/utils/variant";
+import { motion } from "framer-motion";
 
 export default function HeroProjects() {
   return (
-    <section
-      className="hero min-h-screen mask-t-from-70% mask-b-from-70%"
-      style={{
-        background: "url(background-projects.webp)",
-        backgroundSize: "cover",
-      }}
-    >
+    <section className="hero min-h-screen mask-t-from-70% mask-b-from-70% background-projects">
       <div className="hero-content">
         <motion.div 
           variants={fadeIn("up", 0.1)}
@@ -32,5 +26,5 @@ export default function HeroProjects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

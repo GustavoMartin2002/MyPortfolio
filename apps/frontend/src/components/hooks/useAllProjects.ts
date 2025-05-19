@@ -1,4 +1,4 @@
-import { ProjectModel } from "@/models/projectModel"
+import { ProjectModel } from "@/models/projectModel";
 import { apiFetch } from "../../../service/api";
 import { useEffect, useState } from "react";
 
@@ -33,7 +33,7 @@ function useAllProjects() {
     fetchProjectFilter();
   }, []);
 
-  return { projects, loading, error }
+  return { projects, loading, error };
 }
 
 export default useAllProjects;

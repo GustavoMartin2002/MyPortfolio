@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { fadeIn } from "@/utils/variant"
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/utils/variant";
 
 export default function Profile() {
   return (
@@ -37,7 +37,7 @@ export default function Profile() {
           </h1>
 
           <p className="font-extralight max-sm:text-xs">
-            Desenvolvedor Full Stack com mais de 3 anos de experiência em desenvolvimento e implementação de aplicações web responsivas e escaláveis. Forte capacidade para trabalhar de forma colaborativa em equipes, com foco em entregar soluções de alta qualidade e performance.
+            Desenvolvedor Full Stack experiente em soluções web, com forte expertise em JavaScript e TypeScript. Capacidade para trabalhar de forma colaborativa, com foco em qualidade e performance, buscando sempre entregar soluções eficientes e escaláveis.
           </p>
         </div>
       </motion.div>
@@ -187,5 +187,5 @@ export default function Profile() {
         </ul>
       </motion.div>
     </section>
-  )
+  );
 }

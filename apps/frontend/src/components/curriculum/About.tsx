@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { fadeIn } from "@/utils/variant"
-import { motion } from "framer-motion"
+import { fadeIn } from "@/utils/variant";
+import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -59,5 +59,5 @@ export default function About() {
         Meu objetivo de carreira é evoluir para a posição de <b>Engenheiro de Software</b>. Essa ambição me impulsiona a buscar constantemente o aprimoramento técnico e aplicar meus conhecimentos.
       </motion.p>
     </section>
-  )
+  );
 }

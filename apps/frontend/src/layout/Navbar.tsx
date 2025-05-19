@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const pathName = usePathname()
+  const pathName = usePathname();
 
   return (
     <nav className="navbar py-5 bg-transparent text-neutral-content">
@@ -87,5 +87,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }

@@ -1,54 +1,54 @@
-'use client'
+'use client';
 
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function TechList() {
   const technologies = [
     { id: 1,
       name: 'TypeScript',
       url: 'https://www.typescriptlang.org/',
-      icon: '/techStack/typescript.svg'
+      icon: '/techStack/typescript.svg',
     },
     { id: 2,
       name: 'JavaScript',
       url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
-      icon: '/techStack/javascript.svg'
+      icon: '/techStack/javascript.svg',
     },
     { id: 3,
       name: 'React',
       url: 'https://react.dev/',
-      icon: '/techStack/react.svg'
+      icon: '/techStack/react.svg',
     },
     { id: 4,
       name: 'Next.js',
       url: 'https://nextjs.org/',
-      icon: '/techStack/nextjs.svg'
+      icon: '/techStack/nextjs.svg',
     },
     { id: 5,
       name: 'Node.js',
       url: 'https://nodejs.org/',
-      icon: '/techStack/nodejs.svg'
+      icon: '/techStack/nodejs.svg',
     },
     { id: 6,
       name: 'NestJS',
       url: 'https://nestjs.com/',
-      icon: '/techStack/nestjs.svg'
+      icon: '/techStack/nestjs.svg',
     },
     { id: 7,
       name: 'Jest',
       url: 'https://jestjs.io/',
-      icon: '/techStack/jest.svg'
+      icon: '/techStack/jest.svg',
     },
     { id: 8,
       name: 'PostgreSQL',
       url: 'https://www.postgresql.org/',
-      icon: '/techStack/postgresql.svg'
+      icon: '/techStack/postgresql.svg',
     },
     { id: 9,
       name: 'MongoDB',
       url: 'https://www.mongodb.com/',
-      icon: '/techStack/mongodb.svg'
+      icon: '/techStack/mongodb.svg',
     },
   ];  
 
@@ -112,5 +112,5 @@ export default function TechList() {
         ))}
       </motion.ul>
     </>
-  )
+  );
 }

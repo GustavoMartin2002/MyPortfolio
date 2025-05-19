@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import Image from "next/image"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { useState } from "react"
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface ProjectProps {
   _id: string
@@ -13,7 +13,7 @@ interface ProjectProps {
 }
 
 export default function Project(props: ProjectProps) {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <Link href={`/projeto/${props._id}`}>
@@ -21,7 +21,7 @@ export default function Project(props: ProjectProps) {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className="card w-96 h-60 bg-base-100 border border-[#00a2ff4b] drop-shadow-sm m-auto rounded-md
-        max-[450px]:w-full max-[450px]:h-full"
+        max-[480px]:w-full max-[480px]:h-full"
       >
         <figure className="relative">
           { isLoading && (
@@ -40,10 +40,10 @@ export default function Project(props: ProjectProps) {
             />
         </figure>
         <div className="py-3 px-5 flex justify-between items-center">
-          <h2 className="text-center text-lg font-bold max-sm:text-sm">{props.title}</h2>
-          <div className="bg-[#106EBE] text-shadow-lg uppercase font-bold py-1 px-2 rounded-xs max-sm:text-sm">{props.categorie}</div>
+          <h2 className="text-center text-lg font-bold max-sm:text-xs">{props.title}</h2>
+          <div className="bg-[#106EBE] text-shadow-lg uppercase font-bold py-1 px-2 rounded-xs max-sm:text-xs">{props.categorie}</div>
         </div>
       </motion.div>
     </Link>
-  )
+  );
 }

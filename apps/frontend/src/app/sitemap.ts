@@ -1,5 +1,5 @@
 import { ProjectModel } from '@/models/projectModel';
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/projects`);
@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const projectUrls: MetadataRoute.Sitemap = projects.map((project) => ({
     url: `${process.env.NEXT_PUBLIC_BASE_URL}/projeto/${project._id}`,
     lastModified: project.date || new Date(),
-  }))
+  }));
 
   return [
     {
@@ -24,5 +24,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
     },
     ...projectUrls
-  ]
+  ];
 }

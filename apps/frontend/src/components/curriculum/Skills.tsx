@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { fadeIn } from "@/utils/variant";
 import { motion } from "framer-motion";
@@ -63,5 +63,5 @@ export default function Skills() {
         </div>
       </motion.section>
     </section>
-  )
+  );
 }

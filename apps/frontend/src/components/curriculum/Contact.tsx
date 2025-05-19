@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { fadeIn } from "@/utils/variant"
-import { motion } from "framer-motion"
+import { fadeIn } from "@/utils/variant";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
@@ -65,5 +65,5 @@ export default function Contact() {
         </motion.a>
       </div>
     </section>
-  )
+  );
 }

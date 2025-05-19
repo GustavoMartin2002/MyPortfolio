@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import useAllProjects from "../hooks/useAllProjects";
 import ErrorProjects from "../ErrorProjects";
@@ -10,15 +10,15 @@ import { fadeIn } from "@/utils/variant";
 import { useState } from "react";
 
 export default function AllProjects() {
-  const { projects, loading, error } = useAllProjects()
-  const [isLoading, setIsLoading] = useState(true)
+  const { projects, loading, error } = useAllProjects();
+  const [isLoading, setIsLoading] = useState(true);
 
   if (loading) {
     return (
       <section className="w-full max-h-screen">
         <PointsLoading/>
       </section>
-    )
+    );
   }
 
   if (error) {
@@ -32,15 +32,15 @@ export default function AllProjects() {
       >
         <ErrorProjects erro={error}/>
       </motion.section>
-    )
+    );
   }
 
-  if(projects.length === 0) {
+  if (projects.length === 0) {
     return (
       <section className="min-h-screen flex justify-center items-center">
         <h5 className="text-lg text-center font-light max-sm:text-xs">Não há projetos disponíveis no momento.</h5>
       </section>
-    )
+    );
   }
 
   return (
@@ -125,12 +125,12 @@ export default function AllProjects() {
 
               <div className="max-lg:text-sm max-sm:text-xs">
                 <span>Link: </span>
-                <a href={project.link} className="link text-blue break-words overflow-hidden">{ project.link }</a>
+                <a href={project.link} target="_blank" className="link text-blue break-words overflow-hidden">{ project.link }</a>
               </div> 
             </div>
           </div>
         </div>
       )) }
     </motion.section>
-  )
+  );
 }

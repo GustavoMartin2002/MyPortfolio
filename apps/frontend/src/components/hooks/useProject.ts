@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from "react";
 import { ProjectModel } from "@/models/projectModel";
@@ -17,7 +17,7 @@ function useProject(id: string) {
         });
 
         setProject(await data);
-        setLoading(false)
+        setLoading(false);
       } catch (err: unknown) {
         setError(err as string);
         setLoading(false);
@@ -25,8 +25,8 @@ function useProject(id: string) {
     }
 
     fetchProject();
-  }, [id])
-  return { project, loading, error }
+  }, [id]);
+  return { project, loading, error };
 }
 
 export default useProject;

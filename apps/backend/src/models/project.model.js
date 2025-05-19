@@ -56,7 +56,7 @@ const projectSchema = new mongoose.Schema({
           // validates if the URL is valid
           return value.startsWith('http://') || value.startsWith('https://');
         }
-        return true // if the link is empty
+        return true; // if the link is empty
       },
       message: 'O link deve ser uma URL válida.',
     },

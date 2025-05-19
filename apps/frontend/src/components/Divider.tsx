@@ -6,5 +6,5 @@ export default function Divider(props: {title: string}) {
     >
       {props.title}
     </section>
-  )
+  );
 }

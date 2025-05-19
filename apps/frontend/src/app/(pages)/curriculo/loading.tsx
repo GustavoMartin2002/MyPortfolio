@@ -148,5 +148,5 @@ export default function LoadingCurriculum() {
         </ul>
       </section>
     </>
-  )
+  );
 }

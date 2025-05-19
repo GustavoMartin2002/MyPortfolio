@@ -6,33 +6,33 @@ import { apiFetch } from "../../service/api";
 // Mock: module and function
 jest.mock('../../service/api', () => ({
   apiFetch: jest.fn()
-}))
+}));
 
 // mock function for tests
-const mockApiFetch = apiFetch as jest.Mock
+const mockApiFetch = apiFetch as jest.Mock;
 
 // tests in hook (PASS)
 describe('useHighlights (TRY)', () => {
   // reset mock for next describe
   beforeEach(() => {
-    mockApiFetch.mockReset()
-  })
+    mockApiFetch.mockReset();
+  });
 
   test('return initial values', async () => {
-    const { result } = renderHook(() => useHighlights()) // render function
+    const { result } = renderHook(() => useHighlights()); // render function
 
     // verify expected the function
-    expect(result.current.latestProjects).toEqual([])
-    expect(result.current.loading).toBe(true)
-    expect(result.current.error).toBeNull()
+    expect(result.current.latestProjects).toEqual([]);
+    expect(result.current.loading).toBe(true);
+    expect(result.current.error).toBeNull();
 
-    // console.log(result.current.projects)
-    // console.log(result.current.loading)
-    // console.log(result.current.error)
+    // console.log(result.current.projects);
+    // console.log(result.current.loading);
+    // console.log(result.current.error);
 
     // await loading for false
-    await waitFor(() => expect(result.current.loading).toBe(false))
-  })
+    await waitFor(() => expect(result.current.loading).toBe(false));
+  });
 
   test('return last 6 projects recents for by date', async () => {
     // simulate projects
@@ -103,39 +103,39 @@ describe('useHighlights (TRY)', () => {
         link: 'https://',
         github: 'https://',
       },
-    ]
+    ];
 
     // simulate requisition fetch
-    mockApiFetch.mockResolvedValue(mockLastestProjects)
-    const { result } = renderHook(() => useHighlights()) // render function
+    mockApiFetch.mockResolvedValue(mockLastestProjects);
+    const { result } = renderHook(() => useHighlights()); // render function
 
     // sorted projects by date
     const sortByDateProjects = mockLastestProjects.sort((a, b) => 
       new Date(b.date).getTime() - new Date(a.date).getTime()
-    )
+    );
 
     // pull latest 6 projects
-    const latestProjects = sortByDateProjects.slice(0, 6)
+    const latestProjects = sortByDateProjects.slice(0, 6);
 
     // await loading for false
-    await waitFor(() => expect(result.current.loading).toBe(false))
+    await waitFor(() => expect(result.current.loading).toBe(false));
 
     // verify expected the function
-    expect(result.current.latestProjects).toEqual(latestProjects)
-    expect(result.current.loading).toBe(false)
-    expect(result.current.error).toBeNull()
+    expect(result.current.latestProjects).toEqual(latestProjects);
+    expect(result.current.loading).toBe(false);
+    expect(result.current.error).toBeNull();
     
-    // console.log(result.current.projects)
-    // console.log(result.current.loading)
-    // console.log(result.current.error)
-  })
-})
+    // console.log(result.current.projects);
+    // console.log(result.current.loading);
+    // console.log(result.current.error);
+  });
+});
 
 // tests in hook (FAIL)
 describe('useHighlights (CATCH)', () => {
   beforeEach(() => {
-    mockApiFetch.mockReset()
-  })
+    mockApiFetch.mockReset();
+  });
 
   test('return latest projects empty, loading is false and error is not null.', async () => {
     // simulate requisition projects
@@ -151,22 +151,22 @@ describe('useHighlights (CATCH)', () => {
         link: 'https://',
         github: 'https://',
       },
-    ]
+    ];
 
     // simulate requisition reject
-    mockApiFetch.mockRejectedValue(mockLastestProjects)
-    const { result } = renderHook(() => useHighlights()) // render function
+    mockApiFetch.mockRejectedValue(mockLastestProjects);
+    const { result } = renderHook(() => useHighlights()); // render function
 
     // await loading change for false
-    await waitFor(() => expect(result.current.loading).toBe(false))
+    await waitFor(() => expect(result.current.loading).toBe(false));
 
     // verify expected the function
-    expect(result.current.latestProjects).toEqual([])
-    expect(result.current.loading).toBe(false)
-    expect(result.current.error).not.toBeNull()
+    expect(result.current.latestProjects).toEqual([]);
+    expect(result.current.loading).toBe(false);
+    expect(result.current.error).not.toBeNull();
 
-    // console.log(result.current.latestProjects)
-    // console.log(result.current.loading)
-    // console.log(result.current.error)
-  })
-})
+    // console.log(result.current.latestProjects);
+    // console.log(result.current.loading);
+    // console.log(result.current.error);
+  });
+});
