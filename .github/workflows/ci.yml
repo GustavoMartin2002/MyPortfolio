@@ -43,7 +43,7 @@ jobs:
       run: |
         cd apps/backend
         npm start &
-        sleep 10
+        sleep 30
     
     # --- FRONTEND ---
     # Step 3.1 - Install Dependencies
@@ -61,8 +61,8 @@ jobs:
     # step 3.3 - Run Build
     - name: Building the Frontend
       env:
-        NEXT_PUBLIC_BASE_URL: http://localhost:3002
-        NEXT_PUBLIC_API_BASE_URL: http://localhost:3000
+        NEXT_PUBLIC_BASE_URL: https://gustavo-martin.vercel.app
+        NEXT_PUBLIC_API_BASE_URL: ${{ secrets.NEXT_PUBLIC_API_BASE_URL }}
       run: |
         cd apps/frontend
         npm run build
