@@ -18,6 +18,11 @@ export default function ListBackend() {
       name: "Node.js",
     },
     {
+      link: "https://expressjs.com/",
+      image: "/techStack/express.svg",
+      name: "Express.js",
+    },
+    {
       link: "https://fastify.dev/",
       image: "/techStack/fastify.svg",
       name: "Fastify",
@@ -26,11 +31,6 @@ export default function ListBackend() {
       link: "https://nestjs.com/",
       image: "/techStack/nestjs.svg",
       name: "NestJS",
-    },
-    {
-      link: "https://jestjs.io/",
-      image: "/techStack/jest.svg",
-      name: "Jest",
     },
   ];
 

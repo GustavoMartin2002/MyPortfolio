@@ -8,14 +8,44 @@ export default function ListToolsPlataforms() {
       name: "Git",
     },
     {
+      link: "https://github.com/features/actions",
+      image: "/techStack/github-actions.svg",
+      name: "GitHub Actions",
+    },
+    {
+      link: "https://jestjs.io/",
+      image: "/techStack/jest.svg",
+      name: "Jest",
+    },
+    {
+      link: "https://testing-library.com/",
+      image: "/techStack/testing-library.svg",
+      name: "Testing Library",
+    },
+    {
       link: "https://www.docker.com/",
       image: "/techStack/docker.svg",
       name: "Docker",
     },
     {
+      link: "https://kubernetes.io/",
+      image: "/techStack/kubernetes.svg",
+      name: "Kubernetes",
+    },
+    {
       link: "https://aws.amazon.com/",
       image: "/techStack/aws.svg",
       name: "AWS",
+    },
+    {
+      link: "https://cloud.google.com/",
+      image: "/techStack/gcp.svg",
+      name: "GCP",
+    },
+    {
+      link: "https://azure.microsoft.com/",
+      image: "/techStack/azure.svg",
+      name: "Azure",
     },
   ];
 

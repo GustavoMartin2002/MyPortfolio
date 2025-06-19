@@ -24,10 +24,20 @@ export default function EducationExperience() {
               className="text-xl font-bold max-lg
               max-lg:text-lg max-sm:text-sm"
             >
-              Análise e Desenvolvimento de Sistemas
+              <a
+                className="underline text-blue"
+                href="https://consultadiploma.estacio.br/diploma/1058.1058.fe63294d325c"
+                target="_blank"
+              >
+                Análise e Desenvolvimento de Sistemas
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="mx-1 inline" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                  <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                </svg>
+              </a>
             </h1>
             <h2
-              className="text-lg font-mono
+              className="text-lg font-semibold
               max-lg:text-base max-sm:text-xs"
             >
               Centro Universitário Estácio da Bahia
@@ -40,10 +50,20 @@ export default function EducationExperience() {
               className="text-xl font-bold
               max-lg:text-lg max-sm:text-sm"
             >
-              Programação de Sistemas com Aplicações Financeiras
+              <a
+                className="underline text-blue"
+                href="https://validadordedocumentos.senac.br/validador/DC0FB65C-6545-493B-A3FE-796FAB4EE022"
+                target="_blank"
+              >
+                Programação de Sistemas com Aplicações Financeiras
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" className="mx-1 inline" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+                  <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+                </svg>
+              </a>
             </h1>
             <h2
-              className="text-lg font-mono
+              className="text-lg font-semibold
               max-lg:text-base max-sm:text-xs"
             >
               Senac Bahia
@@ -70,7 +90,7 @@ export default function EducationExperience() {
               Programador de Sistemas de Informação
             </h1>
             <p className="text-base font-light mb-3 max-sm:text-xs">Durante 10 meses, tive a oportunidade de atuar como Aprendiz de Programação de Sistemas de Informação na <b className="font-medium">Ford Motor Company</b>, em parceria com o <b className="font-medium">Senac Bahia</b>. Nesse período, desenvolvi uma sólida base de competências técnicas e interpessoais, trabalhando diretamente no setor de <b className="font-medium">HIL (Hardware-in-the-loop)</b>.</p>
-            <span className="max-sm:text-xs">Tech Stack: </span>
+            <span className="font-bold max-sm:text-xs">Tech Stack: </span>
             <span className="max-sm:text-xs">Python, Microsoft Office</span>
           </li>
         </ul>
