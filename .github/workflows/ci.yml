@@ -1,0 +1,69 @@
+name: MyPortfolio - CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+    
+    steps:
+    # Step 1 - Job Configuration
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    # --- BACKEND ---
+    # Step 2.1 - Install Dependencies
+    - name: Install Backend Dependencies
+      run: |
+        cd apps/backend
+        npm install
+    
+    # step 2.2 - Run Tests
+    - name: Run Backend Tests
+      run: | 
+        cd apps/backend
+        npm test
+    
+    # step 2.3 - Start in Background
+    - name: Start Backend in Background
+      env:
+        PORT: 3000
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      run: |
+        cd apps/backend
+        npm start &
+        sleep 10
+    
+    # --- FRONTEND ---
+    # Step 3.1 - Install Dependencies
+    - name: Install Frontend Dependencies
+      run: |
+        cd apps/frontend
+        npm install
+    
+    # step 3.2 - Run Tests
+    - name: Run Frontend Tests
+      run: | 
+        cd apps/frontend
+        npm test
+    
+    # step 3.3 - Run Build
+    - name: Building the Frontend
+      env:
+        NEXT_PUBLIC_BASE_URL: http://localhost:3002
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:3000
+      run: |
+        cd apps/frontend
+        npm run build
