@@ -39,6 +39,7 @@ beforeEach(async () => {
 // Depois de todos os testes, desconectar e parar o servidor de memória
 afterAll(async () => {
   await mongoose.disconnect();
+  if (mongoServer) await mongoServer.stop();
 });
 
 describe('ProjectController', () => {

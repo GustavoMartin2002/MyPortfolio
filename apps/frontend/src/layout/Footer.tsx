@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="footer bg-transparent flex justify-between text-neutral-content items-center p-4">
+    <section className="footer bg-transparent flex justify-between text-neutral-content items-center p-4">
       <aside className="grid-flow-col items-center">
         <a href="">
           <Image
@@ -41,6 +41,6 @@ export default function Footer() {
           </svg>
         </a>
       </nav>
-    </footer>
+    </section>
   );
 }

@@ -18,6 +18,11 @@ export default function ListFrontend() {
       name: "JavaScript",
     },
     {
+      link: "https://www.typescriptlang.org/",
+      image: "/techStack/typescript.svg",
+      name: "TypeScript",
+    },
+    {
       link: "https://tailwindcss.com/",
       image: "/techStack/tailwindcss.svg",
       name: "TailwindCSS",
@@ -28,9 +33,19 @@ export default function ListFrontend() {
       name: "React",
     },
     {
+      link: "https://www.electronjs.org/",
+      image: "/techStack/electron.svg",
+      name: "Electron",
+    },
+    {
       link: "https://nextjs.org/",
       image: "/techStack/nextjs.svg",
       name: "Next.js",
+    },
+    {
+      link: "https://angular.dev/",
+      image: "/techStack/angular.svg",
+      name: "Angular",
     },
   ];
 

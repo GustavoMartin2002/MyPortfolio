@@ -51,7 +51,7 @@ export default function Profile() {
         max-xl:w-[100%]"
       >
         <h1 className="text-center text-2xl text-blue font-bold text-shadow-lg max-sm:text-lg">Tech Stack</h1>
-        <ul className="mt-10 flex flex-wrap gap-2 justify-center items-center max-sm:mt-5 max-sm:text-xs">
+        <ul className="mt-5 flex flex-wrap gap-2 justify-center items-center max-sm:text-xs">
           <li className="font-bold">
             <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">
               <span className="text-blue">#</span>
@@ -102,6 +102,13 @@ export default function Profile() {
           </li>
 
           <li className="font-bold">
+            <a href="https://www.electronjs.org/" target="_blank">
+              <span className="text-blue">#</span>
+              Electron
+            </a>
+          </li>
+
+          <li className="font-bold">
             <a href="https://nextjs.org/" target="_blank">
               <span className="text-blue">#</span>
               Next.js
@@ -109,9 +116,23 @@ export default function Profile() {
           </li>
 
           <li className="font-bold">
+            <a href="https://angular.dev/" target="_blank">
+              <span className="text-blue">#</span>
+              Angular
+            </a>
+          </li>
+
+          <li className="font-bold">
             <a href="https://nodejs.org/pt" target="_blank">
               <span className="text-blue">#</span>
               Node.js
+            </a>
+          </li>
+
+          <li className="font-bold">
+            <a href="https://expressjs.com/" target="_blank">
+              <span className="text-blue">#</span>
+              Express.js
             </a>
           </li>
 
@@ -126,13 +147,6 @@ export default function Profile() {
             <a href="https://nestjs.com/" target="_blank">
               <span className="text-blue">#</span>
               NestJS
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://jestjs.io/" target="_blank">
-              <span className="text-blue">#</span>
-              Jest
             </a>
           </li>
 
@@ -172,6 +186,27 @@ export default function Profile() {
           </li>
 
           <li className="font-bold">
+            <a href="https://github.com/features/actions" target="_blank">
+              <span className="text-blue">#</span>
+              GitHubActions
+            </a>
+          </li>
+
+          <li className="font-bold">
+            <a href="https://jestjs.io/" target="_blank">
+              <span className="text-blue">#</span>
+              Jest
+            </a>
+          </li>
+
+          <li className="font-bold">
+            <a href="https://testing-library.com/" target="_blank">
+              <span className="text-blue">#</span>
+              TestingLibrary
+            </a>
+          </li>
+
+          <li className="font-bold">
             <a href="https://www.docker.com/" target="_blank">
               <span className="text-blue">#</span>
               Docker
@@ -179,9 +214,30 @@ export default function Profile() {
           </li>
 
           <li className="font-bold">
+            <a href="https://kubernetes.io/" target="_blank">
+              <span className="text-blue">#</span>
+              Kubernetes
+            </a>
+          </li>
+
+          <li className="font-bold">
             <a href="https://aws.amazon.com/" target="_blank">
               <span className="text-blue">#</span>
               AWS
+            </a>
+          </li>
+
+          <li className="font-bold">
+            <a href="https://cloud.google.com/" target="_blank">
+              <span className="text-blue">#</span>
+              GCP
+            </a>
+          </li>
+
+          <li className="font-bold">
+            <a href="https://azure.microsoft.com/" target="_blank">
+              <span className="text-blue">#</span>
+              Azure
             </a>
           </li>
         </ul>

@@ -24,6 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="preload" fetchPriority="high" as="image" href="/background-home.webp" type="image/webp"/>
+        <link rel="preload" fetchPriority="high" as="image" href="/background-projects.webp" type="image/webp"/>
+      </head>
       <body>
         <header>
           <NextTopLoader
