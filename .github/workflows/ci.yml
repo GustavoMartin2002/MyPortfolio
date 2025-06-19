@@ -33,7 +33,7 @@ jobs:
     - name: Run Backend Tests
       run: | 
         cd apps/backend
-        npm test
+        npm run test:ci
     
     # step 2.3 - Start in Background
     - name: Start Backend in Background
@@ -56,7 +56,7 @@ jobs:
     - name: Run Frontend Tests
       run: | 
         cd apps/frontend
-        npm test
+        npm run test:ci
     
     # step 3.3 - Run Build
     - name: Building the Frontend
