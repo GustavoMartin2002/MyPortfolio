@@ -1,0 +1,32 @@
+name: my-portfolio
+
+services:
+  backend:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      MONGODB_URI: ${MONGODB_URI}
+      ORIGIN: ${ORIGIN}
+    networks:
+      - app-network
+  
+  frontend:
+    build:
+      context: ./apps/frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3002:3002'
+    environment:
+      NEXT_PUBLIC_BASE_URL: ${NEXT_PUBLIC_BASE_URL}
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL}
+    depends_on:
+     - backend
+    networks:
+     - app-network
+
+networks:
+  app-network:
+    driver: bridge
