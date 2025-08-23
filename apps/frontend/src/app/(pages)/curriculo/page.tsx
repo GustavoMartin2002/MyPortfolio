@@ -3,9 +3,9 @@ import Divider from "@/components/Divider";
 import Skills from "@/components/curriculum/Skills";
 import About from "@/components/curriculum/About";
 import EducationExperience from "@/components/curriculum/EducationExperience";
-import Contact from "@/components/curriculum/Contact";
+import Contact from "@/components/Contact";
 
-export default async function CurriculumPage() {
+export default function CurriculumPage() {
   return(
     <>
       <HeroCurriculum/>

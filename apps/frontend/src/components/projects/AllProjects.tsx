@@ -69,7 +69,7 @@ export default function AllProjects() {
               width={1920}
               height={1080}
               alt={"Projeto"}
-              priority={true}
+              loading="lazy"
               onLoad={() => setIsLoading(false)}
             />
           </figure>

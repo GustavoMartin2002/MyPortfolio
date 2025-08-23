@@ -24,7 +24,7 @@ export default function Badge(props: BadgeProps) {
         width={50}
         height={50}
         alt={"Icon"}
-        priority={true}
+        loading="lazy"
       />
       <span className="text-sm text-center font-medium mt-2 max-sm:text-xs">{ props.name }</span>
     </motion.a>

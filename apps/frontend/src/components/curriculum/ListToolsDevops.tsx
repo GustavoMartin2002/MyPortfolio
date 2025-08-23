@@ -1,16 +1,11 @@
 import Badge from "../Badge";
 
-export default function ListToolsPlataforms() {
+export default function ListToolsDevops() {
   const technologies = [
     {
       link: "https://git-scm.com/",
       image: "/techStack/git.svg",
       name: "Git",
-    },
-    {
-      link: "https://github.com/features/actions",
-      image: "/techStack/github-actions.svg",
-      name: "GitHub Actions",
     },
     {
       link: "https://jestjs.io/",
@@ -23,6 +18,26 @@ export default function ListToolsPlataforms() {
       name: "Testing Library",
     },
     {
+      link: "https://www.postman.com/",
+      image: "/techStack/postman.svg",
+      name: "Postman",
+    },
+    {
+      link: "https://swagger.io/",
+      image: "/techStack/swagger.svg",
+      name: "Swagger",
+    },
+    {
+      link: "https://storybook.js.org/",
+      image: "/techStack/storybook.svg",
+      name: "Storybook",
+    },
+    {
+      link: "https://github.com/features/actions",
+      image: "/techStack/github-actions.svg",
+      name: "GitHub Actions",
+    },
+    {
       link: "https://www.docker.com/",
       image: "/techStack/docker.svg",
       name: "Docker",
@@ -33,19 +48,19 @@ export default function ListToolsPlataforms() {
       name: "Kubernetes",
     },
     {
-      link: "https://aws.amazon.com/",
-      image: "/techStack/aws.svg",
-      name: "AWS",
+      link: "https://github.com/features/copilot",
+      image: "/techStack/github-copilot.svg",
+      name: "Github Copilot",
     },
     {
-      link: "https://cloud.google.com/",
-      image: "/techStack/gcp.svg",
-      name: "GCP",
+      link: "https://gemini.google.com/",
+      image: "/techStack/gemini.svg",
+      name: "Gemini",
     },
     {
-      link: "https://azure.microsoft.com/",
-      image: "/techStack/azure.svg",
-      name: "Azure",
+      link: "https://chatgpt.com/",
+      image: "/techStack/openai.svg",
+      name: "OpenAI",
     },
   ];
 

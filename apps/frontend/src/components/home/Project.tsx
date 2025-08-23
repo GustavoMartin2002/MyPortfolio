@@ -35,7 +35,7 @@ export default function Project(props: ProjectProps) {
               width={1920}
               height={1080}
               alt={"projeto"}
-              priority={true}
+              loading="lazy"
               onLoad={() => setIsLoading(false)}
             />
         </figure>

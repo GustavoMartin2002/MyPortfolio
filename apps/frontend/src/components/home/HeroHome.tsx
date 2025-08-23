@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { fadeIn } from "@/utils/variant";
 import { motion } from "framer-motion";
 import TechList from "../TechList";
@@ -9,7 +10,15 @@ export default function HeroHome() {
   const pathname = usePathname();
 
   return (
-    <section className="flex justify-center items-center min-h-screen mask-t-from-70% mask-b-from-70% background-home">
+    <section className="flex justify-center items-center min-h-screen relative mask-b-from-100% mask-t-from-100%">
+      <Image 
+        className="-z-10 object-cover pointer-events-none mask-t-from-70% mask-b-from-70%"
+        src="/background-home.webp"
+        alt="home.webp"
+        fill
+        quality={100}
+        priority={true}
+      />
       <motion.div
         key={pathname}
         variants={fadeIn("up", 0.1)}
@@ -25,7 +34,7 @@ export default function HeroHome() {
         </h1>
 
         <h2 
-          className="text-xl font-extralight mx-[20%]
+          className="text-xl font-light mx-[20%]
           max-lg:mx-[10%] max-sm:mx-[5%] max-sm:text-xs"
         >
           Experiente em soluções web, com sólida expertise na implementação de aplicações avançadas e escaláveis.

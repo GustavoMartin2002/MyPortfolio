@@ -3,14 +3,19 @@ import Badge from "../Badge";
 export default function ListBackend() {
   const technologies = [
     {
-      link: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript",
-      image: "/techStack/javascript.svg",
-      name: "JavaScript",
-    },
-    {
       link: "https://www.typescriptlang.org/",
       image: "/techStack/typescript.svg",
       name: "TypeScript",
+    },
+    {
+      link: "https://learn.microsoft.com/pt-br/dotnet/csharp/",
+      image: "/techStack/csharp.svg",
+      name: "C-Sharp",
+    },
+    {
+      link: "https://www.python.org/",
+      image: "/techStack/python.svg",
+      name: "Python",
     },
     {
       link: "https://nodejs.org/",

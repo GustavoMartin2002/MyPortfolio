@@ -5,6 +5,39 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
 
 export default function Profile() {
+  const techStack = [
+    { name: "HTML5", link: "https://developer.mozilla.org/pt-BR/docs/Web/HTML" },
+    { name: "CSS3", link: "https://developer.mozilla.org/pt-BR/docs/Web/CSS" },
+    { name: "JavaScript", link: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" },
+    { name: "TypeScript", link: "https://www.typescriptlang.org/" },
+    { name: "TailwindCSS", link: "https://tailwindcss.com/" },
+    { name: "React.js", link: "https://react.dev/" },
+    { name: "ReactNative", link: "https://reactnative.dev/" },
+    { name: "Next.js", link: "https://nextjs.org/" },
+    { name: "Angular", link: "https://angular.io/" },
+    { name: "Electron", link: "https://www.electronjs.org/" },
+    { name: "Node.js", link: "https://nodejs.org/" },
+    { name: "CSharp", link: "https://learn.microsoft.com/pt-br/dotnet/csharp/" },
+    { name: "Python", link: "https://www.python.org/" },
+    { name: "Express.js", link: "https://expressjs.com/" },
+    { name: "Fastify", link: "https://fastify.dev/" },
+    { name: "NestJS", link: "https://nestjs.com/" },
+    { name: "MySQL", link: "https://www.mysql.com/" },
+    { name: "PostgreSQL", link: "https://www.postgresql.org/" },
+    { name: "MongoDB", link: "https://www.mongodb.com/" },
+    { name: "Firebase", link: "https://firebase.google.com/" },
+    { name: "Git", link: "https://git-scm.com/" },
+    { name: "Jest", link: "https://jestjs.io/" },
+    { name: "TestingLibrary", link: "https://testing-library.com/" },
+    { name: "Postman", link: "https://www.postman.com/" },
+    { name: "Swagger", link: "https://swagger.io/" },
+    { name: "Storybook", link: "https://storybook.js.org/" },
+    { name: "Docker", link: "https://www.docker.com/" },
+    { name: "GithubActions", link: "https://github.com/features/actions" },
+    { name: "AWS", link: "https://aws.amazon.com/" },
+    { name: "GCP", link: "https://cloud.google.com/" },
+    { name: "Azure", link: "https://azure.microsoft.com/" },
+  ];
   return (
     <section 
       className="mx-auto my-20 w-[80%] flex gap-10
@@ -19,13 +52,13 @@ export default function Profile() {
         max-xl:w-[100%] max-[800px]:flex-col"
       >
         <Image
-          className="w-[250px] h-[250px] rounded-full border-2 shadow-sm
+          className="w-[250px] h-[250px] rounded-full border-2 shadow-sm pointer-events-none
           max-sm:w-[200px] max-sm:h-[200px]"
           src={"/profile.webp"}
           width={1600}
           height={1600}
           alt={"profile"}
-          priority={true}
+          loading="lazy"
         />
 
         <div className="px-10 max-sm:p-5">
@@ -52,194 +85,14 @@ export default function Profile() {
       >
         <h1 className="text-center text-2xl text-blue font-bold text-shadow-lg max-sm:text-lg">Tech Stack</h1>
         <ul className="mt-5 flex flex-wrap gap-2 justify-center items-center max-sm:text-xs">
-          <li className="font-bold">
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">
-              <span className="text-blue">#</span>
-              HTML5
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">
-              <span className="text-blue">#</span>
-              CSS3
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank">
-              <span className="text-blue">#</span>
-              JavaScript
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://www.typescriptlang.org/" target="_blank">
-              <span className="text-blue">#</span>
-              TypeScript
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://tailwindcss.com/" target="_blank">
-              <span className="text-blue">#</span>
-              TailwindCSS
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://react.dev/" target="_blank">
-              <span className="text-blue">#</span>
-              React.js
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://reactnative.dev/" target="_blank">
-              <span className="text-blue">#</span>
-              ReactNative
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://www.electronjs.org/" target="_blank">
-              <span className="text-blue">#</span>
-              Electron
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://nextjs.org/" target="_blank">
-              <span className="text-blue">#</span>
-              Next.js
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://angular.dev/" target="_blank">
-              <span className="text-blue">#</span>
-              Angular
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://nodejs.org/pt" target="_blank">
-              <span className="text-blue">#</span>
-              Node.js
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://expressjs.com/" target="_blank">
-              <span className="text-blue">#</span>
-              Express.js
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://fastify.dev/" target="_blank">
-              <span className="text-blue">#</span>
-              Fastify
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://nestjs.com/" target="_blank">
-              <span className="text-blue">#</span>
-              NestJS
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://www.mysql.com/" target="_blank">
-              <span className="text-blue">#</span>
-              MySQL
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://www.postgresql.org/" target="_blank">
-              <span className="text-blue">#</span>
-              PostgreSQL
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://www.mongodb.com/" target="_blank">
-              <span className="text-blue">#</span>
-              MongoDB
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://firebase.google.com/" target="_blank">
-              <span className="text-blue">#</span>
-              Firebase
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://git-scm.com/" target="_blank">
-              <span className="text-blue">#</span>
-              Git
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://github.com/features/actions" target="_blank">
-              <span className="text-blue">#</span>
-              GitHubActions
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://jestjs.io/" target="_blank">
-              <span className="text-blue">#</span>
-              Jest
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://testing-library.com/" target="_blank">
-              <span className="text-blue">#</span>
-              TestingLibrary
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://www.docker.com/" target="_blank">
-              <span className="text-blue">#</span>
-              Docker
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://kubernetes.io/" target="_blank">
-              <span className="text-blue">#</span>
-              Kubernetes
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://aws.amazon.com/" target="_blank">
-              <span className="text-blue">#</span>
-              AWS
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://cloud.google.com/" target="_blank">
-              <span className="text-blue">#</span>
-              GCP
-            </a>
-          </li>
-
-          <li className="font-bold">
-            <a href="https://azure.microsoft.com/" target="_blank">
-              <span className="text-blue">#</span>
-              Azure
-            </a>
-          </li>
+          { techStack.map((tech) => (
+            <li key={tech.name} className="font-bold">
+              <a href={tech.link} target="_blank">
+                <span className="text-blue">#</span>
+                {tech.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </motion.div>
     </section>
