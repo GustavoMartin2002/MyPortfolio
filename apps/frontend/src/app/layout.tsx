@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/layout/Navbar";
 import Footer from "@/layout/Footer";
 import NextTopLoader from "nextjs-toploader";
+import localFont from "next/font/local";
 
 export const metadata: Metadata = {
   title: 'Gustavo Martin | Desenvolvedor Full Stack & Soluções Digitais',
@@ -56,13 +57,17 @@ export const metadata: Metadata = {
   },
 };
 
+const cascadiaCode = localFont({
+  src: "../../public/Cascadia_Code.ttf",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" className={cascadiaCode.className} suppressHydrationWarning>
       <body>
         <header>
           <NextTopLoader

@@ -35,7 +35,7 @@ export default function HeroHome() {
 
         <h2 
           className="text-xl font-light mx-[20%]
-          max-lg:mx-[10%] max-sm:mx-[5%] max-sm:text-xs"
+          max-lg:mx-[10%] max-lg:text-base max-md:text-sm max-sm:mx-[5%] max-sm:text-xs"
         >
           Experiente em soluções web, com sólida expertise na implementação de aplicações avançadas e escaláveis.
         </h2>

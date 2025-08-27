@@ -1,4 +1,4 @@
-export default async function LoadingHome() {
+export default function LoadingHome() {
   return (
     <>
       <section className="min-h-screen flex justify-center items-center">

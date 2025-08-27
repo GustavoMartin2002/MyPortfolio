@@ -1,36 +1,11 @@
 'use client';
 
+import { educations } from "@/data/educations";
+import { experiences } from "@/data/experiences";
 import { fadeIn } from "@/utils/variant";
 import { motion } from "framer-motion";
 
 export default function EducationExperience() {
-  const educations = [
-    {
-      id: 1,
-      year: "Agosto de 2021 - Junho de 2024",
-      degree: "Análise e Desenvolvimento de Sistemas",
-      institution: "Estácio da Bahia",
-      link: "https://consultadiploma.estacio.br/diploma/1058.1058.fe63294d325c",
-    },
-    {
-      id: 2,
-      year: "Abril de 2024 - Fevereiro de 2025",
-      degree: "Programação de Sistemas",
-      institution: "Senac Bahia",
-      link: "https://validadordedocumentos.senac.br/validador/DC0FB65C-6545-493B-A3FE-796FAB4EE022",
-    }
-  ];
-
-  const experiences = [
-    {
-      id: 1,
-      year: "Abril de 2024 - Fevereiro de 2025",
-      title: "Programador de Sistemas de Informação",
-      description: "Durante 10 meses, tive a oportunidade de atuar como Aprendiz de Programação de Sistemas de Informação na Ford Motor Company, em parceria com o Senac Bahia. Nesse período, desenvolvi uma sólida base de competências técnicas e interpessoais, trabalhando diretamente no setor de HIL (Hardware-in-the-loop).",
-      techStack: ["Python", "Microsoft Office",]
-    },
-  ];
-
   return (
     <section
       className="flex justify-center items-start mx-auto gap-5 w-[80%] my-20

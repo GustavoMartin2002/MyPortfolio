@@ -24,12 +24,15 @@ export default function HeroProjects() {
         >
           <h1
             className="text-5xl text-shadow-lg font-bold linear-gradient-blue
-            max-lg:text-4xl max-sm:text-3xl"
+            max-lg:text-4xl max-md:text-3xl max-sm:text-2xl"
             >
               Projetos
             </h1>
 
-          <h2 className="text-xl text-shadow-lg font-light mt-3 max-sm:text-sm">
+          <h2
+            className="text-xl text-shadow-lg font-light mt-3
+            max-lg:text-lg max-md:text-base max-sm:text-sm"
+          >
             Nesta seção, você poderá conhecer alguns dos projetos que desenvolvi com dedicação e foco em criar soluções funcionais.
           </h2>
         </motion.div>

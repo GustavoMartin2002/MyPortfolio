@@ -3,41 +3,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/variant";
+import { techStack } from "@/data/techStack";
 
 export default function Profile() {
-  const techStack = [
-    { name: "HTML5", link: "https://developer.mozilla.org/pt-BR/docs/Web/HTML" },
-    { name: "CSS3", link: "https://developer.mozilla.org/pt-BR/docs/Web/CSS" },
-    { name: "JavaScript", link: "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" },
-    { name: "TypeScript", link: "https://www.typescriptlang.org/" },
-    { name: "TailwindCSS", link: "https://tailwindcss.com/" },
-    { name: "React.js", link: "https://react.dev/" },
-    { name: "ReactNative", link: "https://reactnative.dev/" },
-    { name: "Next.js", link: "https://nextjs.org/" },
-    { name: "Angular", link: "https://angular.io/" },
-    { name: "Electron", link: "https://www.electronjs.org/" },
-    { name: "Node.js", link: "https://nodejs.org/" },
-    { name: "CSharp", link: "https://learn.microsoft.com/pt-br/dotnet/csharp/" },
-    { name: "Python", link: "https://www.python.org/" },
-    { name: "Express.js", link: "https://expressjs.com/" },
-    { name: "Fastify", link: "https://fastify.dev/" },
-    { name: "NestJS", link: "https://nestjs.com/" },
-    { name: "MySQL", link: "https://www.mysql.com/" },
-    { name: "PostgreSQL", link: "https://www.postgresql.org/" },
-    { name: "MongoDB", link: "https://www.mongodb.com/" },
-    { name: "Firebase", link: "https://firebase.google.com/" },
-    { name: "Git", link: "https://git-scm.com/" },
-    { name: "Jest", link: "https://jestjs.io/" },
-    { name: "TestingLibrary", link: "https://testing-library.com/" },
-    { name: "Postman", link: "https://www.postman.com/" },
-    { name: "Swagger", link: "https://swagger.io/" },
-    { name: "Storybook", link: "https://storybook.js.org/" },
-    { name: "Docker", link: "https://www.docker.com/" },
-    { name: "GithubActions", link: "https://github.com/features/actions" },
-    { name: "AWS", link: "https://aws.amazon.com/" },
-    { name: "GCP", link: "https://cloud.google.com/" },
-    { name: "Azure", link: "https://azure.microsoft.com/" },
-  ];
   return (
     <section 
       className="mx-auto my-20 w-[80%] flex gap-10
@@ -69,7 +37,7 @@ export default function Profile() {
             Gustavo Lima Martin
           </h1>
 
-          <p className="font-extralight max-sm:text-xs">
+          <p className="font-extralight max-[800px]:text-center max-sm:text-xs">
             Desenvolvedor Full Stack experiente em soluções web, com forte expertise em JavaScript e TypeScript. Capacidade para trabalhar de forma colaborativa, com foco em qualidade e performance, buscando sempre entregar soluções eficientes e escaláveis.
           </p>
         </div>

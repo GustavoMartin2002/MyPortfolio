@@ -28,16 +28,16 @@ export default function Project(props: ProjectProps) {
             <div className="absolute top-0 left-0 w-full h-full bg-base-200 flex justify-center items-center z-10">
               <span className="loading loading-spinner loading-md"></span>
             </div>
-          )}
+          ) }
           <Image
-              className={`w-full h-full ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-              src={props.image}
-              width={1920}
-              height={1080}
-              alt={"projeto"}
-              loading="lazy"
-              onLoad={() => setIsLoading(false)}
-            />
+            className={`w-full h-full ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+            src={props.image}
+            width={1920}
+            height={1080}
+            alt={"projeto"}
+            loading="lazy"
+            onLoad={() => setIsLoading(false)}
+          />
         </figure>
         <div className="py-3 px-5 flex justify-between items-center">
           <h2 className="text-center text-lg font-bold max-sm:text-xs">{props.title}</h2>
