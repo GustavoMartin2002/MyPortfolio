@@ -2,9 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRef } from "react";
 
 export default function Navbar() {
   const pathName = usePathname();
+  const drawerCheckboxRef = useRef<HTMLInputElement>(null);
+  const closeDrawer = () => {
+    if (drawerCheckboxRef.current) {
+      drawerCheckboxRef.current.checked = false;
+    };
+  };
 
   return (
     <nav className="navbar py-5 bg-transparent text-neutral-content">
@@ -25,6 +32,14 @@ export default function Navbar() {
             className={`tab font-bold ${pathName === '/' ? 'tab-active': 'tab'}`}
           >
             Inicio
+          </Link>
+
+          <Link 
+            href={"/servicos"}
+            role="tab"
+            className={`tab font-bold ${pathName === '/servicos' ? 'tab-active': 'tab'}`}
+          >
+            Serviços
           </Link>
 
           <Link
@@ -56,7 +71,7 @@ export default function Navbar() {
 
       {/* drawer, nav mobile */}
       <div className="drawer drawer-end navbar-end lg:hidden">
-        <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+        <input id="my-drawer-4" type="checkbox" className="drawer-toggle" ref={drawerCheckboxRef} />
 
         <div className="drawer-content">
           <label htmlFor="my-drawer-4" className="drawer-button btn btn-square btn-ghost rounded-sm">
@@ -70,19 +85,53 @@ export default function Navbar() {
           <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
 
           <ul className="menu gap-2 bg-[#00143d] text-base-content min-h-full w-80 p-4">
-            <a href={"/"} className="nav-link block btn-link text-center p-1">
-              <li>Inicio</li>
-            </a>
+            <li>
+              <Link
+                href="/"
+                onClick={closeDrawer}
+                className="nav-link block btn-link text-center p-1"
+              >
+                Inicio
+              </Link>
+            </li>
 
-            <a href={"/projetos"} className="nav-link block btn-link text-center p-1">
-              <li>Projetos</li>
-            </a>
+            <li>
+              <Link 
+                href="/servicos"
+                onClick={closeDrawer}
+                className="nav-link block btn-link text-center p-1"
+              >
+                Serviços
+              </Link>
+            </li>
 
-            <a href={"/curriculo"} className="nav-link block btn-link text-center p-1">
-              <li>Currículo</li>
-            </a>
+            <li>
+              <Link
+                href="/projetos"
+                onClick={closeDrawer}
+                className="nav-link block btn-link text-center p-1"
+              >
+                Projetos
+              </Link>
+            </li>
 
-            <a href={"/curriculo#contato"} className="btn bg-blue border-0 drop-shadow-lg text-shadow-lg w-36 mx-auto mt-auto rounded-full">Contato</a>
+            <li>
+              <Link
+                href="/curriculo"
+                onClick={closeDrawer}
+                className="nav-link block btn-link text-center p-1"
+              >
+                Currículo
+              </Link>
+            </li>
+
+            <Link
+              href="/curriculo#contato"
+              onClick={closeDrawer}
+              className="btn bg-blue border-0 drop-shadow-lg text-shadow-lg w-36 mx-auto mt-auto rounded-full"
+            >
+              Contato
+            </Link>
           </ul>
         </div>
       </div>

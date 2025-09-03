@@ -1,21 +1,22 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <section className="footer bg-transparent flex justify-between text-neutral-content items-center p-4">
       <aside className="grid-flow-col items-center">
-        <a href="">
+        <Link href="/">
           <Image
-            className="w-full h-full max-sm:w-[30px] max-sm:h-[30px]"
+            className="w-full h-full pointer-events-none select-none max-sm:w-[30px] max-sm:h-[30px]"
             src={"/logo.webp"} 
             width={40}
             height={40}
-            alt={"logo"}
+            alt={"branding.webp"}
             loading="lazy"
           />
-        </a>
+        </Link>
 
-        <p className="max-sm:text-xs">Copyright © {new Date().getFullYear()}</p>
+        <p className="select-none max-sm:text-xs">Copyright © {new Date().getFullYear()}</p>
       </aside>
 
       <nav className="grid-flow-col gap-4 max-sm:gap-2">

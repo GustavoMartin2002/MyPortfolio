@@ -45,8 +45,8 @@ export default function ProjectPage({ params }: { params:Promise<{id: string}> }
           variants={fadeIn("left", 0.0)}
           initial={"hidden"}
           animate={"show"}
-          className="text-shadow-lg text-4xl font-extrabold 
-          max-lg:text-2xl max-sm:text-xl"
+          className="text-shadow-lg text-4xl font-extrabold linear-gradient-blue
+          max-lg:text-3xl max-md:text-2xl max-sm:text-xl"
         > 
           { project.name }
         </motion.h1>
@@ -63,7 +63,7 @@ export default function ProjectPage({ params }: { params:Promise<{id: string}> }
             </div>
           )}
           <Image
-            className={`w-auto h-auto rounded-xs my-10 shadow-2xl
+            className={`w-auto h-auto rounded-xs my-10 shadow-2xl pointer-events-none select-none
             max-md:my-5 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
             src={project.image}
             alt={"Projeto"}

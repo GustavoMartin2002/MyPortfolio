@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import ListBackend from "./ListBackend";
 import ListDatabase from "./ListDatabase";
 import ListFrontend from "./ListFrontend";
-import ListToolsPlataforms from "./ListToolsPlataforms";
-
+import ListToolsDevops from "./ListToolsDevops";
+import ListCloud from "./ListCloud";
 
 export default function Skills() {
   return (
@@ -57,9 +57,22 @@ export default function Skills() {
         viewport={{once: true, amount: 0}}
         className="my-15 max-sm:my-10"
       >
-        <h1 className="text-center text-3xl font-bold max-lg:text-lg">Tools & Platforms</h1>
+        <h1 className="text-center text-3xl font-bold max-lg:text-lg">Tools & DevOps</h1>
         <div className="mt-10">
-          <ListToolsPlataforms/>
+          <ListToolsDevops/>
+        </div>
+      </motion.section>
+
+      <motion.section
+        variants={fadeIn('', 0.1)}
+        initial={"hidden"}
+        whileInView={"show"}
+        viewport={{once: true, amount: 0}}
+        className="my-15 max-sm:my-10"
+      >
+        <h1 className="text-center text-3xl font-bold max-lg:text-lg">Cloud</h1>
+        <div className="mt-10">
+          <ListCloud/>
         </div>
       </motion.section>
     </section>

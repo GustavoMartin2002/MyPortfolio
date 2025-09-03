@@ -1,3 +1,4 @@
+import { services } from '@/data/services';
 import { ProjectModel } from '@/models/projectModel';
 import type { MetadataRoute } from 'next';
 
@@ -10,9 +11,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: project.date || new Date(),
   }));
 
+  const serviceUrls: MetadataRoute.Sitemap = services.map((service) => ({
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}/servico/${service.id}`,
+    lastModified: new Date(),
+  }));
+
   return [
     {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/servicos`,
       lastModified: new Date(),
     },
     {
@@ -23,6 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/curriculo`,
       lastModified: new Date(),
     },
-    ...projectUrls
+    ...serviceUrls,
+    ...projectUrls,
   ];
 }

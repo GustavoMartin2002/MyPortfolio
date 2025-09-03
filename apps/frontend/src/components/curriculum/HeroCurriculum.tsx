@@ -13,17 +13,17 @@ export default function HeroCurriculum() {
       className="min-h-screen flex justify-center items-center m-auto gap-20 w-[80%]
       max-xl:w-full max-lg:flex-col max-lg:gap-10"
     >
-      <div>
+      <figure>
         <Image
-          className="w-[300px] h-[300px] shadow-2xl rounded-full
+          className="w-[300px] h-[300px] shadow-2xl rounded-full pointer-events-none select-none
           max-xl:w-[250px] max-xl:h-[250px] max-md:w-[200px] max-md:h-[200px]"
           src={"/profile.webp"}
           width={1600}
           height={1600}
-          alt={"Gustavo"}
+          alt={"profile.webp"}
           priority={true}
         />
-      </div>
+      </figure>
     
       <div className="w-[60%] max-lg:w-[80%] max-sm:w-[90%]">
         <h1

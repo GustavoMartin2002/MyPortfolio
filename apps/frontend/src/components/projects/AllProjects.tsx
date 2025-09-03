@@ -64,12 +64,12 @@ export default function AllProjects() {
               </div>
             )}
             <Image
-              className={`w-[1920px] h-auto m-auto rounded-sm ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+              className={`w-[1920px] h-auto m-auto rounded-sm pointer-events-none select-none ${isLoading ? 'opacity-0' : 'opacity-100'}`}
               src={ project.image }
               width={1920}
               height={1080}
-              alt={"Projeto"}
-              priority={true}
+              alt={"project.webp"}
+              loading="lazy"
               onLoad={() => setIsLoading(false)}
             />
           </figure>
