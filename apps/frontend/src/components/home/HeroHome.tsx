@@ -12,7 +12,7 @@ export default function HeroHome() {
   return (
     <section className="flex justify-center items-center min-h-screen relative mask-b-from-100% mask-t-from-100%">
       <Image 
-        className="-z-10 object-cover pointer-events-none mask-t-from-70% mask-b-from-70%"
+        className="-z-10 object-cover pointer-events-none select-none mask-t-from-70% mask-b-from-70%"
         src="/background-home.webp"
         alt="home.webp"
         fill

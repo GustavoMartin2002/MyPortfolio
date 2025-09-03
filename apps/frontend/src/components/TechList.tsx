@@ -24,7 +24,7 @@ export default function TechList() {
               target="_blank"
             >
               <Image
-                className="mx-3 max-sm:mx-2 max-sm:w-[25px] max-sm:h-[25px]"
+                className="mx-3 select-none max-sm:mx-2 max-sm:w-[25px] max-sm:h-[25px]"
                 src={tech.image}
                 width={50}
                 height={50}
@@ -53,12 +53,12 @@ export default function TechList() {
               target="_blank"
             >
               <Image
-                className="mx-3 max-sm:mx-2 max-sm:w-[25px] max-sm:h-[25px]"
+                className="mx-3 select-none max-sm:mx-2 max-sm:w-[25px] max-sm:h-[25px]"
                 src={tech.image}
                 width={50}
                 height={50}
-                alt={tech.name}
-                priority
+                alt={"tech.svg"}
+                priority={true}
               />
             </a>
           </motion.li>

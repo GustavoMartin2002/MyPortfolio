@@ -15,12 +15,12 @@ export default function HeroCurriculum() {
     >
       <figure>
         <Image
-          className="w-[300px] h-[300px] shadow-2xl rounded-full pointer-events-none
+          className="w-[300px] h-[300px] shadow-2xl rounded-full pointer-events-none select-none
           max-xl:w-[250px] max-xl:h-[250px] max-md:w-[200px] max-md:h-[200px]"
           src={"/profile.webp"}
           width={1600}
           height={1600}
-          alt={"Gustavo"}
+          alt={"profile.webp"}
           priority={true}
         />
       </figure>

@@ -20,12 +20,12 @@ export default function Profile() {
         max-xl:w-[100%] max-[800px]:flex-col"
       >
         <Image
-          className="w-[250px] h-[250px] rounded-full border-2 shadow-sm pointer-events-none
+          className="w-[250px] h-[250px] rounded-full border-2 shadow-sm pointer-events-none select-none
           max-sm:w-[200px] max-sm:h-[200px]"
           src={"/profile.webp"}
           width={1600}
           height={1600}
-          alt={"profile"}
+          alt={"profile.webp"}
           loading="lazy"
         />
 

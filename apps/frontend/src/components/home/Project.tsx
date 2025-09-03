@@ -4,13 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ProjectModel } from "@/models/projectModel";
 
-interface ProjectProps {
-  _id: string
-  title: string
-  image: string
-  categorie: string
-}
+type ProjectProps = Pick<ProjectModel, "_id" | "name" | "image" | "categorie">;
 
 export default function Project(props: ProjectProps) {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,18 +26,18 @@ export default function Project(props: ProjectProps) {
             </div>
           ) }
           <Image
-            className={`w-full h-full ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+            className={`w-full h-full pointer-events-none select-none ${isLoading ? 'opacity-0' : 'opacity-100'}`}
             src={props.image}
             width={1920}
             height={1080}
-            alt={"projeto"}
+            alt={"project.webp"}
             loading="lazy"
             onLoad={() => setIsLoading(false)}
           />
         </figure>
         <div className="py-3 px-5 flex justify-between items-center">
-          <h2 className="text-center text-lg font-bold max-sm:text-xs">{props.title}</h2>
-          <div className="bg-[#106EBE] text-shadow-lg uppercase font-bold py-1 px-2 rounded-xs max-sm:text-xs">{props.categorie}</div>
+          <h2 className="text-center text-lg font-bold max-sm:text-xs">{props.name}</h2>
+          <div className="bg-[#106EBE] text-shadow-lg uppercase font-bold py-1 px-2 rounded-xs select-none max-sm:text-xs">{props.categorie}</div>
         </div>
       </motion.div>
     </Link>

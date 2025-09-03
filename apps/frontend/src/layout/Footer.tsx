@@ -7,16 +7,16 @@ export default function Footer() {
       <aside className="grid-flow-col items-center">
         <Link href="/">
           <Image
-            className="w-full h-full max-sm:w-[30px] max-sm:h-[30px] pointer-events-none"
+            className="w-full h-full pointer-events-none select-none max-sm:w-[30px] max-sm:h-[30px]"
             src={"/logo.webp"} 
             width={40}
             height={40}
-            alt={"logo"}
+            alt={"branding.webp"}
             loading="lazy"
           />
         </Link>
 
-        <p className="max-sm:text-xs">Copyright © {new Date().getFullYear()}</p>
+        <p className="select-none max-sm:text-xs">Copyright © {new Date().getFullYear()}</p>
       </aside>
 
       <nav className="grid-flow-col gap-4 max-sm:gap-2">

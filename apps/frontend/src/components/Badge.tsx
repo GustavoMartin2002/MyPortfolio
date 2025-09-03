@@ -19,14 +19,14 @@ export default function Badge(props: BadgeProps) {
       target="_blank"
     >
       <Image
-        className="m-auto"
+        className="m-auto pointer-events-none select-none"
         src={ props.image }
         width={50}
         height={50}
-        alt={"Icon"}
+        alt={"tech.svg"}
         loading="lazy"
       />
-      <span className="text-sm text-center font-medium mt-2 max-sm:text-xs">{ props.name }</span>
+      <span className="text-sm text-center font-medium mt-2 select-none max-sm:text-xs">{ props.name }</span>
     </motion.a>
   );
 }
