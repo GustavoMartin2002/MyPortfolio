@@ -1,58 +1,62 @@
-# MyPortfolio - Gustavo Martin
+# MyPortfolio - Gustavo Martin🖥️
 
-### Bem-vindo ao meu portfólio pessoal, uma aplicação web full stack desenvolvida para apresentar meus projetos, experiências e jornada na tecnologia de forma dinâmica e eficiente. <br> Diga adeus às atualizações manuais no código!
+![CI Status](https://github.com/GustavoMartin2002/MyPortfolio/actions/workflows/ci.yml/badge.svg)
+![Architecture](https://img.shields.io/badge/Architecture%20-MVC-brightgreen)
 
-## Por que Full Stack ?
-### Meu portfólio anterior era estático, o que significava que cada novo projeto ou atualização de currículo exigia modificações diretas no código-fonte. Isso consumia tempo e não era escalável. <br> Com esta nova arquitetura full stack, agora posso gerenciar e exibir minhas informações de maneira muito mais fácil, simplesmente inserindo os dados na plataforma. Isso garante que meu portfólio esteja sempre atualizado e refletindo minhas conquistas mais recentes.
+Bem-vindo ao repositório do meu portfólio pessoal. Mais do que um simples site estático, esta é uma aplicação **Web Full Stack** completa, desenvolvida para apresentar meus projetos, experiências e jornada na tecnologia de forma dinâmica e eficiente.
 
-## Detalhes Técnicos
-### Esta aplicação foi construída com foco em escalabilidade, eficiência e melhores práticas de desenvolvimento. Abaixo estão os detalhes das tecnologias utilizadas e como elas se integram:
+**[Acesse o Portfólio](https://gustavo-martin.vercel.app)**
 
-### Arquitetura Robusta
-- **Backend (API):** Estruturado em MVC (Model-View-Controller), utilizando Fastify para construir uma API eficiente e organizada, que interage com um banco de dados MongoDB via Mongoose.
-- **Frontend:** Desenvolvido com Next.js, que oferece flexibilidade e performance para uma experiência de usuário otimizada.
+### Por que Full Stack ?
+Meu portfólio anterior era estático, o que significava que cada novo projeto ou atualização de currículo exigia modificações diretas no código-fonte. Isso consumia tempo e não era escalável. Com esta nova arquitetura full stack, agora posso gerenciar e exibir minhas informações de maneira muito mais fácil, simplesmente inserindo os dados na plataforma. Isso garante que meu portfólio esteja sempre atualizado e refletindo minhas conquistas mais recentes.
 
-### Qualidade e Segurança
-- **Testes:** Utilizando Jest para garantir que o código funcione como esperado e evitar regressões.
-- **Ferramentas de Linting:** Com ESLint, para manter um código limpo, consistente e seguro.
+### Arquitetura da Solução🏛️
+O projeto é construído sobre uma arquitetura de microsserviços desacoplada, com comunicação via API REST, garantindo escalabilidade.
 
-### Experiência do Usuário
-- **Design System:** DaisyUI em conjunto com TailwindCSS para um design moderno e personalizável.
-- **Animações:** Motion para animações fluidas, proporcionando uma navegação mais dinâmica e envolvente.
+- **Frontend:** Uma aplicação Next.js, responsável pela interface do usuário e renderização (SSR/SSG), hospedada na **Vercel**.
+- **Backend:** Uma API RESTful robusta construída com Node.js e Fastify, responsável pela lógica de negócios e comunicação com o banco de dados, hospedada no **Render**.
+- **Banco de Dados:** Uma base de dados NoSQL com MongoDB, gerenciada através do **MongoDB Atlas**.
 
-## Tech Stack
+### Tech Stack🛠️
+#### Frontend:
+- **Framework:** Next.js.
+- **Linguagem:** TypeScript.
+- **Estilização:** TailwindCSS com DaisyUI.
+- **Animações:** Framer Motion.
+- **Feedback Visual:** Next.js TopLoader.
+- **Testes:** Jest com Testing Library.
+- **Containerização:** Docker.
 
-### Database:
-- **MongoDB:** Um banco de dados NoSQL flexível e escalável, ideal para gerenciar os dados dos projetos e do currículo.
+#### Backend:
+- **Runtime:** Node.js.
+- **Linguagem:** JavaScript.
+- **Framework:** Fastify.
+- **ORM/ODM:** Mongoose.
+- **Testes:** Jest.
+- **Qualidade de Código:** ESLint.
+- **Containerização:** Docker.
 
-### Back-End:
-- **JavaScript:** Linguagem de programação.
-- **Node.js:** Ambiente de tempo de execução JavaScript que permite construir aplicações de rede escaláveis.
-- **Fastify:** Framework web rápido e de baixo overhead para Node.js, otimizado para a construção de APIs.
-- **Mongoose:** Biblioteca de modelagem de objetos para MongoDB no Node.js, que simplifica a interação com o banco de dados.
-- **Jest:** Framework de testes JavaScript amplamente utilizado para garantir a robustez do backend.
-- **ESLint:** Ferramenta de linting que ajuda a manter a qualidade e consistência do código JavaScript.
+#### Database:
+- **Database:** MongoDB.
+- **Cloud Hosting:** MongoDB Atlas.
 
-### Front-End:
-- **TypeScript:** Um superconjunto de JavaScript que adiciona tipagem estática, melhorando a mantenabilidade e a detecção de erros no desenvolvimento.
-- **Next.js:** Framework React para a construção de aplicações web modernas, com recursos como renderização do lado do servidor (SSR) e geração de sites estáticos (SSG).
-- **Next.js-TopLoader:** Componente para Next.js que exibe uma barra de progresso no topo da página durante as transições de rota, melhorando a percepção de desempenho.
-- **TailwindCSS:** Framework CSS "utility-first" que permite construir designs personalizados rapidamente.
-- **DaisyUI:** Biblioteca de componentes para TailwindCSS que simplifica a criação de interfaces de usuário com componentes pré-construídos.
-- **Motion (Framer Motion):** Biblioteca de animação para React que facilita a criação de animações fluidas e interativas.
-- **Jest:** Utilizado também no frontend para testar componentes e funcionalidades.
-- **Testing-Library:** Um conjunto de utilitários de teste que encoraja boas práticas de teste de UI, focando na experiência do usuário.
+#### Cloud & DevOps:
+- **Hospedagem (Frontend):** Vercel.
+- **Hospedagem (Backend):** Render.
+- **CI/CD:** Pipeline de integração e deploy contínuo configurado (GitHub Actions).
+- **Infraestrutura como Código:** Docker & Docker Compose.
 
-### Tools:
-- **Git:** Sistema de controle de versão distribuído, essencial para o desenvolvimento colaborativo e rastreamento de mudanças.
-- **Postman:** Ferramenta popular para testar e documentar APIs.
+#### Ferramentas:
+- **Versionamento:** Git.
+- **Testes de API:** Postman.
 
-### Cloud:
-- **Render (Backend):** Plataforma para hospedagem do backend da aplicação.
-- **Vercel (Frontend):** Plataforma para hospedagem do frontend, otimizada para Next.js.
-- **MongoDB Atlas (Database):** Serviço de banco de dados MongoDB na nuvem.
+### DevOps & Infraestrutura🔧
+A aplicação foi projetada com uma cultura DevOps em mente, garantindo automação e eficiência.
 
-## Observação Importante
-### É importante notar que, por estar hospedado em um serviço gratuito, o backend pode levar alguns segundos para "acordar" na primeira requisição após um período de inatividade (aproximadamente 20-30 segundos). Considere isso em sua primeira visita!
+- **CI/CD:** A pipeline de integração e entrega contínua automatiza os testes e realiza o deploy para os ambientes de produção na Vercel e Render a cada novo commit na branch principal.
+- **Docker:** Tanto o frontend quanto o backend são containerizados com Docker, garantindo desempenho entre os ambientes de desenvolvimento e produção.
+- **Docker Compose:** Facilita a inicialização de todo o ambiente de desenvolvimento local (frontend, backend) com um único comando.
 
+### Observação Importante⚠️
+**É importante notar que, por estar hospedado em um serviço gratuito, o backend pode levar alguns segundos para "acordar" na primeira requisição após um período de inatividade (aproximadamente 20-30 segundos). Considere isso em sua primeira visita!**
 #### https://gustavo-martin.vercel.app
