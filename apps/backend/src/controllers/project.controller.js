@@ -5,13 +5,8 @@ export default class ProjectController {
   // POST - CREATE
   async createProject(request, reply) {
     try {
-      const newProject = new Project({
-        _id: new mongoose.Types.ObjectId(),
-        ...request.body,
-      }); // create new project
-
-      const saveProject = await newProject.save(); // save project
-      reply.status(201).send(saveProject); // 201 success
+      const newProject = await Project.create(request.body); // create new project
+      reply.status(201).send(newProject); // 201 success
     } catch(error) {
       reply.status(500).send({
         message: 'Erro ao Criar Projeto.',
@@ -20,33 +15,56 @@ export default class ProjectController {
     }
   }
 
-  // GET - READ
+  // GET - ALL
   async getAllProjects(request, reply) {
     try {
       const search = request.query.search || '';  // get project or all projects
-      const projects = await Project.find({
-        $or: [
-          { name: { $regex: search, $options: 'i' } }, // search for name
-          { technologies: { $in: [new RegExp(search, 'i')] } }, // search for technologies
-        ],
-      }).lean(); // convert json in javascript simple
+      const offset = parseInt(request.query.offset) || 1; // get page or default 1
+      const limit = parseInt(request.query.limit) || 6; // get limit or default 6
+      const skip = (offset - 1) * limit; // calculate skip
 
-      reply.status(200).send(projects); // 200 ok
+      const searchQuery = search ? {
+        $or: [
+          { name: { $regex: search, $options: 'i' } },
+          { technologies: { $in: [new RegExp(search, 'i')] } },
+        ],
+      } : {}; // build search query
+
+      const totalProjects = await Project.countDocuments(searchQuery); // count total projects
+
+      const AllProjects = await Project.find(searchQuery)
+      .sort({ date: -1 }) // sort by date desc
+      .skip(skip) // skip for pagination
+      .limit(limit) // limit for pagination
+      .lean(); // lean for performance
+
+      reply.status(200).send({
+        data: AllProjects,
+        currentPage: offset,
+        totalPages: Math.ceil(totalProjects / limit) || 1,
+        totalProjects,
+      }); // 200 ok
     } catch (error) {
       reply.status(500).send({
-        message: 'Erro ao Buscar Projeto.',
+        message: 'Erro ao Buscar Projetos.',
         error: error.message,
       }); // 500 server error
     }
   }
 
+  // GET - ID
   async getProjectById(request, reply) {
     try {
       const projectId = request.params.id; // get params for id
-      const project = await Project.findById(projectId);
+      if(!mongoose.Types.ObjectId.isValid(projectId)) {
+        return reply.status(400).send({ message: 'O ID do projeto é inválido.' });
+      } // validate id
+
+      const project = await Project.findById(projectId); // find project by id
       if (!project) {
         return reply.status(404).send({ message: 'Projeto Não Encontrado.' });
-      }
+      } // 404 not found
+
       reply.status(200).send(project); // 200 ok
     } catch (error) {
       reply.status(500).send({
@@ -60,19 +78,21 @@ export default class ProjectController {
   async updateProject(request, reply) {
     try {
       const projectId = request.params.id; // get params for id
+      if(!mongoose.Types.ObjectId.isValid(projectId)) { 
+        return reply.status(400).send({ message: 'O ID do projeto é inválido.' });
+      } // validate id
+
       const updateProject = await Project.findByIdAndUpdate(
         projectId, 
         request.body,
         {
           new: true,
+          runValidators: true,
         },
-      );
-      
+      ); // update project by id
       if (!updateProject) {
-        return reply.status(404).send({
-          message: "Projeto Não Encontrado.",
-        }); // 404 not found
-      }
+        return reply.status(404).send({ message: "Projeto Não Encontrado." });
+      } // 404 not found
 
       reply.status(200).send(updateProject); // 200 ok
     } catch (error) {
@@ -82,24 +102,26 @@ export default class ProjectController {
       }); // 500 server error
     }
   }
-  // DLETE - REMOVE
+
+  // DELETE - REMOVE
   async removeProject(request, reply) {
     try {
-      const projectId = request.params.id;
-      const deleteProject = await Project.findByIdAndDelete(projectId);
+      const projectId = request.params.id; // get params for id
+      if(!mongoose.Types.ObjectId.isValid(projectId)) { 
+        return reply.status(400).send({ message: 'O ID do projeto é inválido.' });
+      } // validate id
 
-      if (!deleteProject) {
-        reply.status(404).send({
-          message: 'Projeto Não Encontrado.'
-        });
-      }
+      const deletedProject = await Project.findByIdAndDelete(projectId); // delete project by id
+      if (!deletedProject) {
+        return reply.status(404).send({ message: 'Projeto Não Encontrado.' });
+      } // 404 not found
 
       reply.status(204).send(); // no content and success
     } catch (error) {
       reply.status(500).send({
         message: 'Erro ao Deletar Projeto.',
         error: error.message,
-      });
+      }); // 500 server error
     }
   }
 }

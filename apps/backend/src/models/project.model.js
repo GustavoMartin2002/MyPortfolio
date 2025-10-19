@@ -1,11 +1,6 @@
 import mongoose from "mongoose";
 
 const projectSchema = new mongoose.Schema({
-  _id: {
-    // unique id by default
-    type: mongoose.Schema.Types.ObjectId, // mongoose generate IDs uniques
-    required: [true, 'O ID é obrigatório.'], // message error
-  },
   name: {
     type: String,
     trim: true, // remove spaces at the beginning and end
@@ -17,24 +12,22 @@ const projectSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A descrição do projeto é obrigatória.'],
     minlength: [10, 'A descrição do projeto deve ter pelo menos 10 caracteres.'],
-    maxlength: [600, 'A descrição do projeto não pode ter mais de 300 caracteres.'],
+    maxlength: [600, 'A descrição do projeto não pode ter mais de 600 caracteres.'],
   },
   categorie: {
     type: String,
     required: [true, 'A categoria do projeto é obrigatória.'],
     enum: ['web', 'software', 'mobile'], // options
     lowercase: true, // save categorie in lowercase
-    trim: true,
+    trim: true, // remove spaces at the beginning and end
   },
   image: {
     type: String,
     required: [true, 'A imagem é obrigatória.'],
     validate: {
-      validator: (value) => {
-        return value.startsWith('http://') || value.startsWith('https://') || value.startsWith('/');
-      },
-      message: 'A imagem deve ser uma URL ou um caminho de arquivo válido.',
-    }
+      validator: (value) => value.startsWith('https://') || value.startsWith('/'),
+      message: 'A imagem deve ser uma URL segura (https://) ou um caminho de arquivo local.',
+    }, // custom validator
   },
   date: {
     type: Date,
@@ -45,36 +38,24 @@ const projectSchema = new mongoose.Schema({
     required: [true, 'Pelo menos uma tecnologia é obrigatória.'],
     minlength: [2, 'Cada tecnologia deve ter pelo menos 2 caracteres.'],
     maxlength: [50, 'Cada tecnologia não pode ter mais de 50 caracteres.'],
-    trim: true,
+    trim: true, // remove spaces at the beginning and end
   }],
   link: {
     type: String,
-    trim: true,
+    trim: true, // remove spaces at the beginning and end
     validate: {
-      validator: (value) => {
-        if (value) {
-          // validates if the URL is valid
-          return value.startsWith('http://') || value.startsWith('https://');
-        }
-        return true; // if the link is empty
-      },
-      message: 'O link deve ser uma URL válida.',
-    },
+      validator: (value) => !value || value.startsWith('https://'),
+      message: 'O link deve ser uma URL segura (https://)',
+    }, // custom validator
   },
   github: {
     type: String,
-    trim: true,
+    trim: true, // remove spaces at the beginning and end
     validate: {
-      validator: (value) => {
-        if (value) {
-          // validates if the URL github is valid
-          return value.startsWith('https://github.com/');
-        }
-        return true; // if the link is empty
-      },
-      message: 'O link do GitHub deve ser uma URL válida',
-    },
-  }
+      validator: (value) => !value || value.startsWith('https://github.com/'),
+      message: 'O link do GitHub deve ser uma URL válida começando com https://github.com/.',
+    }, // custom validator
+  },
 });
 
 export const Project = mongoose.model('Project', projectSchema);
