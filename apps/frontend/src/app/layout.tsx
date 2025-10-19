@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     // Front-end
     'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'TailwindCSS', 'React.js', 'Next.js', 'Angular', 'Electron',
     // Back-end
-    'C-Sharp', 'C#', 'Python', 'Node.js', 'Express.js', 'Fastify', 'Nest.js',
+    'CSharp', 'C#', 'Python', 'Node.js', 'Express.js', 'Fastify', 'Nest.js',
     // Databases
     'MySQL', 'PostgreSQL', 'MongoDB', 'Firebase',
     // Tools and DevOps
@@ -67,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={cascadiaCode.className} suppressHydrationWarning>
+    <html lang="pt-BR" className={cascadiaCode.className} suppressHydrationWarning data-scroll-behavior="smooth">
       <body>
         <header>
           <NextTopLoader

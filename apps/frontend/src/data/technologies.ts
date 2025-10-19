@@ -85,6 +85,11 @@ export const technologies: TechnologiesModel[] = [
         image: "/techStack/nestjs.svg",
         name: "NestJS",
       },
+      {
+        link: "https://dotnet.microsoft.com/apps/aspnet",
+        image: "/techStack/dotnet-core.svg",
+        name: "ASP.NET",
+      }
     ],
     database: [
       {

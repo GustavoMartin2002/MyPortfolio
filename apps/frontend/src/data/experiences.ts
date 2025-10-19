@@ -3,6 +3,13 @@ import { ExperienceModel } from "@/models/experienceModel";
 
 export const experiences: ExperienceModel[] = [
   {
+    id: 2,
+    year: "Abril de 2025 - o momento",
+    title: "Desenvolvedor Full Stack",
+    description: "Atuando de forma remota, colaboro com clientes e empresas para criar soluções que resolvam problemas reais, e impulsiona o crescimento dos negócios.",
+    techStack: ["Node.js", "TypeScript", "Angular", "Next.js", "GCP"]
+  },
+  {
     id: 1,
     year: "Abril de 2024 - Fevereiro de 2025",
     title: "Programador de Sistemas de Informação",

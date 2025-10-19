@@ -2,7 +2,13 @@ import { useState, useEffect } from "react";
 import { apiFetch } from "../../../service/api";
 import { ProjectModel } from "@/models/projectModel";
 
-type ProjectData = Pick<ProjectModel, "_id" | "name" | "categorie" | "image" | "date">;
+type ProjectData = Pick<ProjectModel, "_id" | "name" | "categorie" | "image">;
+interface apiResponse {
+  data: ProjectData[];
+  currentPage: number;
+  totalPages: number;
+  totalProjects: number;
+}
 
 function useHighlights() {
   const [latestProjects, setLatestProject] = useState<ProjectData[]>([]);
@@ -12,23 +18,21 @@ function useHighlights() {
   useEffect(() => {
     async function fetchHighlights() {
       try {
-        const data = apiFetch<ProjectData[]>('projects', {
-          method: 'GET'
+        const response = await apiFetch<apiResponse>('projects?offset=1&limit=6', {
+          method: 'GET',
         });
-        const sortProjects = [...(await data)].sort((a, b) => {
-          const dateA = new Date(a.date);
-          const dateB = new Date(b.date);
-
-          return dateB.getTime() - dateA.getTime();
-        });
-        setLatestProject(sortProjects.slice(0, 6));
-        setLoading(false);
+        setLatestProject(response.data);
       } catch (err: unknown) {
-        setError(err as string);
+        // err instanceof Error ? setError(err.message) : setError("Ocorreu um erro desconhecido.");
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Ocorreu um erro desconhecido.");
+        }
+      } finally {
         setLoading(false);
       }
     }
-
     fetchHighlights();
   },[]);
   

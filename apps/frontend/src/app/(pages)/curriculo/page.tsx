@@ -20,7 +20,7 @@ export default function CurriculumPage() {
       <About/>
 
       <Divider title={"Contato"}/>
-      <Contact/>
+      <Contact whatsapp="https://wa.me/5571982326878?text=Oi,%20me%20interessei%20sobre%20seu%20curriculo"/>
     </>
   );
 }

@@ -3,7 +3,7 @@
 import { fadeIn } from "@/utils/variant";
 import { motion } from "framer-motion";
 
-export default function Contact() {
+export default function Contact(props: { whatsapp: string }) {
   return (
     <section
       id="contato"
@@ -18,7 +18,7 @@ export default function Contact() {
           viewport={{once: true, amount: 0}}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          href="https://wa.me/5571982326878" 
+          href={props.whatsapp}
           target="_blank"
         >
           <div className="flex flex-col w-28 h-28 py-3 px-5 bg-[#106dbe] rounded-lg max-sm:w-24 max-sm:h-24">

@@ -9,7 +9,7 @@ export default function ServicesPage() {
       <HeroServices/>
       <Divider title="Meus Serviços"/>
       <AllServices/>
-      <Contact/>
+      <Contact whatsapp="https://wa.me/5571982326878?text=Oi,%20me%20interessei%20sobre%20seus%20serviços"/>
     </>
   );
 }

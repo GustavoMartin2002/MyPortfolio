@@ -12,7 +12,7 @@ services:
       ORIGIN: ${ORIGIN}
     networks:
       - app-network
-  
+
   frontend:
     build:
       context: ./apps/frontend

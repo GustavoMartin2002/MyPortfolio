@@ -25,7 +25,7 @@ export default function Navbar() {
       </div>
 
       <div className="navbar-center max-lg:hidden">
-        <div role="tablist" className="flex gap-5 tabs tabs-border">
+        <div role="tablist" className="flex gap-10 tabs tabs-border">
           <Link 
             href={"/"}
             role="tab"

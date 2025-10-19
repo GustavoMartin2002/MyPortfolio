@@ -1,136 +1,74 @@
-import { ProjectModel } from '@/models/projectModel';
-import useAllProjects from '../components/hooks/useAllProjects';
 import { renderHook, waitFor } from '@testing-library/react';
+import useAllProjects from '../components/hooks/useAllProjects';
 import { apiFetch } from '../../service/api';
+import { ProjectModel } from '@/models/projectModel';
 
 // Mock: module and function
 jest.mock('../../service/api', () => ({
-  apiFetch: jest.fn()
+  apiFetch: jest.fn(),
 }));
 
 // mock function for tests
 const mockApiFetch = apiFetch as jest.Mock;
 
-// tests in hook (PASS)
-describe('useAllProjects (TRY)', () => {
-  // reset mock for next describe
+describe('useAllProjects', () => {
+  // Before each test, reset the mock to ensure test isolation
   beforeEach(() => {
     mockApiFetch.mockReset();
   });
 
-  test('return initial values', async () => {
-    const { result } = renderHook(() => useAllProjects()); // render function
+  test('return the correct initial state', async () => {
+    // Act
+    const { result } = renderHook(() => useAllProjects());
 
-    // verify expected the function
+    // Assert
     expect(result.current.projects).toEqual([]);
     expect(result.current.loading).toBe(true);
     expect(result.current.error).toBeNull();
-
-    // console.log(result.current.projects);
-    // console.log(result.current.loading);
-    // console.log(result.current.error);
-
-    // await loading for false
+    expect(result.current.totalPages).toBe(1);
+    expect(result.current.currentPage).toBe(1);
     await waitFor(() => expect(result.current.loading).toBe(false));
   });
 
-  test('return all projects order by date', async () => {
-    // simulate projects
-    const mockProjects: ProjectModel[] = [
-      {
-        _id: '3',
-        name: 'Projeto 3',
-        description:'description projeto 3',
-        categorie: 'web',
-        image: '3.jpg',
-        date: '2025-05-10',
-        technologies: [],
-        link: 'https://',
-        github: 'https://',
-      },
-      {
-        _id: '2',
-        name: 'Projeto 2',
-        description:'description projeto 2',
-        categorie: 'mobile',
-        image: '2.jpg',
-        date: '2025-05-11',
-        technologies: [],
-        link: 'https://',
-        github: 'https://',
-      },
-      {
-        _id: '1',
-        name: 'Projeto 1',
-        description:'description projeto 1',
-        categorie: 'software',
-        image: '1.jpg',
-        date: '2025-05-12',
-        technologies: [],
-        link: 'https://',
-        github: 'https://',
-      },
+  test('fetch and return projects successfully', async () => {
+    // Arrange
+    const mockProjects: Partial<ProjectModel>[] = [
+      { _id: '1', name: 'Project 1' },
+      { _id: '2', name: 'Project 2' },
+      { _id: '3', name: 'Project 3' },
     ];
 
-    // simulate requisition fetch
-    mockApiFetch.mockResolvedValue(mockProjects);
-    const { result } = renderHook(()=> useAllProjects()); // render function
+    mockApiFetch.mockResolvedValue({
+      data: mockProjects,
+      currentPage: 1,
+      totalPages: 1,
+      totalProjects: 3,
+    });
 
-    // sorted projects by date
-    const sortByDateProjects = mockProjects.sort((a, b) => 
-      new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-
-    // await loading for false
-    await waitFor(() => expect(result.current.loading).toBe(false));
-
-    // verify expected the function
-    expect(result.current.projects).toEqual(sortByDateProjects);
-    expect(result.current.loading).toBe(false);
+    // Act
+    const { result } = renderHook(() => useAllProjects());
+    
+    // Assert
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+      expect(result.current.projects).toEqual(mockProjects);
+    });
     expect(result.current.error).toBeNull();
-    
-    // console.log(result.current.projects);
-    // console.log(result.current.loading);
-    // console.log(result.current.error);
-  });
-});
-
-// tests in hook (FAIL)
-describe('useAllProjects (CATCH)', () => {
-  beforeEach(() => {
-    mockApiFetch.mockReset();
   });
 
-  test('return all projects empty, loading is false and error is not null', async () => {
-    // simulate requisition projects
-    const mockProjects: ProjectModel[] = [
-      {
-        _id: 'ABC',
-        name: 'project ABC',
-        description:'description project ABC',
-        categorie: 'web',
-        image: 'ABC.jpg',
-        date: '2025-05-11',
-        technologies: [],
-        link: 'https://',
-        github: 'https://',
-      },
-    ];
+  test('handle API errors correctly', async () => {
+    // Arrange
+    const errorMessage = 'API Failure';
+    mockApiFetch.mockRejectedValue(new Error(errorMessage));
 
-    // simulate requisition fetch
-    mockApiFetch.mockRejectedValue(mockProjects);
-    const { result } = renderHook(() => useAllProjects()); //render function
+    // Act
+    const { result } = renderHook(() => useAllProjects());
 
-    // await loading change for false
-    await waitFor(() => expect(result.current.loading).toBe(false));
-
-    // verify expected the function
+    // Assert
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toBe(errorMessage);
+    });
     expect(result.current.projects).toEqual([]);
-    expect(result.current.loading).toBe(false);
-    expect(result.current.error).not.toBeNull();
-    
-    // console.log(result.current.projects);
-    // console.log(result.current.loading);
-    // console.log(result.current.error);
   });
 });
