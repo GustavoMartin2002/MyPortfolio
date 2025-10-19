@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from "react";
 import { ProjectModel } from "@/models/projectModel";
 import { apiFetch } from "../../../service/api";
@@ -12,18 +10,21 @@ function useProject(id: string) {
   useEffect(() => {
     async function fetchProject() {
       try {
-        const data = apiFetch<ProjectModel>(`project/${id}`, {
+        const response = await apiFetch<ProjectModel>(`project/${id}`, {
           method: 'GET',
         });
-
-        setProject(await data);
-        setLoading(false);
+        setProject(response);
       } catch (err: unknown) {
-        setError(err as string);
+        // err instanceof Error ? setError(err.message) : setError("Ocorreu um erro desconhecido.");
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Ocorreu um erro desconhecido.");
+        }
+      } finally {
         setLoading(false);
       }
     }
-
     fetchProject();
   }, [id]);
   return { project, loading, error };

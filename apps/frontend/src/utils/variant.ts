@@ -1,4 +1,7 @@
-export const fadeIn = (direction: string, delay: number) => {
+import { Variants } from "framer-motion";
+type Direction = "up" | "bottom" | "left" | "right" | "";
+
+export const fadeIn = (direction: Direction, delay: number):Variants => {
   return {
     hidden: {
       opacity: 0,

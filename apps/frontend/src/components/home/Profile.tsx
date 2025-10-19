@@ -34,11 +34,11 @@ export default function Profile() {
             className="text-2xl font-bold text-blue text-shadow-lg mb-3
             max-[800px]:text-center max-[800px]:my-3 max-sm:mt-0 max-sm:text-lg"
           >
-            Gustavo Lima Martin
+            Gustavo Martin
           </h1>
 
           <p className="font-extralight max-[800px]:text-center max-sm:text-xs">
-            Desenvolvedor Full Stack experiente em soluções web, com forte expertise em JavaScript e TypeScript. Capacidade para trabalhar de forma colaborativa, com foco em qualidade e performance, buscando sempre entregar soluções eficientes e escaláveis.
+            Sólida expertise em Node.js e TypeScript. Atuação destacada no desenvolvimento de aplicações escaláveis e performáticas utilizando frameworks, otimizando workspaces e serviços em nuvem (cloud). Sempre aplicando as melhores práticas de arquitetura, testes e manutenção de código.
           </p>
         </div>
       </motion.div>

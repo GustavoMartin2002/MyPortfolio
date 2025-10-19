@@ -24,69 +24,51 @@ const mockProject: ProjectModel = {
   github: 'https://',
 };
 
-// tests in hook (PASS)
-describe('useProject (TRY)', () => {
+describe('useProject', () => {
+  // Before each test, reset the mock to ensure test isolation
   beforeEach(() => {
     mockApiFetch.mockReset();
   });
 
   test('return initial values', async () => {
-    const { result } = renderHook(() => useProject(mockProject._id)); //render function
+    // Act
+    const { result } = renderHook(() => useProject(mockProject._id));
 
-    // verify expected the function
-    expect(result.current.project).toBeNull();
+    // Assert
     expect(result.current.loading).toBe(true);
-    expect(result.current.error).toBeNull();
-
-    // console.log(result.current.project);
-    // console.log(result.current.loading);
-    // console.log(result.current.error);
-
-    // await loading for false
-    await waitFor(() => expect(result.current.loading).toBe(false));
-    // console.log(result.current.loading);
-  });
-
-  test('return project by id', async () => {
-    // simulate requisition fetch
-    mockApiFetch.mockResolvedValue(mockProject);
-    const { result } = renderHook(() => useProject(mockProject._id)); // render function
-
-    // await loading for false
-    await waitFor(() => expect(result.current.loading).toBe(false));
-
-    // verify expected the function
-    expect(result.current.project).toEqual(mockProject);
-    expect(result.current.loading).toBe(false);
-    expect(result.current.error).toBeNull();
-
-    // console.log(result.current.project);
-    // console.log(result.current.loading);
-    // console.log(result.current.error);
-  });
-});
-
-// tests in hook (FAIL)
-describe('useProject (CATCH)', () => {
-  beforeEach(() => {
-    mockApiFetch.mockReset();
-  });
-  
-  test('return project null, loading is false and error is not null', async () => {
-    // simulate requisition fetch
-    mockApiFetch.mockRejectedValue(mockProject);
-    const { result } = renderHook(() => useProject(mockProject._id)); // render function
-
-    // await loading change for false
-    await waitFor(() => expect(result.current.loading).toBe(false));
-
-    // verify expected the function
     expect(result.current.project).toBeNull();
-    expect(result.current.loading).toBe(false);
-    expect(result.current.error).not.toBeNull();
+    expect(result.current.error).toBeNull();
+    await waitFor(() => expect(result.current.loading).toBe(false));
+  });
 
-    // console.log(result.current.project);
-    // console.log(result.current.loading);
-    // console.log(result.current.error);
+  test('return a project by id successfully', async () => {
+    // Arrange
+    mockApiFetch.mockResolvedValue(mockProject);
+    
+    // Act
+    const { result } = renderHook(() => useProject(mockProject._id));
+    
+    // Assert
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+      expect(result.current.project).toEqual(mockProject);
+    });
+    expect(result.current.error).toBeNull();
+  });
+
+  test('handle the error correctly when the API fails', async () => {
+    // Arrange
+    const errorMessage = "Project not found";
+    mockApiFetch.mockRejectedValue(new Error(errorMessage));
+    
+    // Act
+    const { result } = renderHook(() => useProject(mockProject._id));
+    
+    // Assert
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toBe(errorMessage);
+    });
+    expect(result.current.project).toBeNull();
   });
 });

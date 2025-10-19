@@ -30,7 +30,7 @@ export default function HeroCurriculum() {
           className="text-5xl linear-gradient-blue text-shadow-lg text-start font-bold
           max-lg:text-4xl max-lg:text-center max-md:text-3xl max-sm:text-2xl"
         >
-          Gustavo Lima Martin
+          Gustavo Martin
         </h1>
 
         <p

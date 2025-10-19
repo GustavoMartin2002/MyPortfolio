@@ -173,7 +173,7 @@ export default function ServicePage({ params }: { params: Promise<{ id: string }
                 </motion.div>
               )) }
           </div>
-          <Contact/>
+          <Contact whatsapp={`https://wa.me/5571982326878?text=Oi,%20me%20interessei%20sobre%20seu%20serviço:%20${service.name}`}/>
         </div>
       </section>
     </>

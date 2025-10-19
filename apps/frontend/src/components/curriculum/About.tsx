@@ -46,7 +46,7 @@ export default function About() {
         viewport={{once: true, amount: 0}}
         className="text-xl font-extralight max-lg:text-lg max-md:text-base max-sm:text-sm"
       >
-        Ao adentrar o mundo da <b>programação</b>, minhas habilidades em <b>JavaScript</b> e <b>TypeScript</b> se tornaram pilares. No meu primeiro emprego, tive a oportunidade de liderar o desenvolvimento <b>front-end</b> e também contribuir com o <b>back-end</b>, uma experiência valiosa que me proporcionou uma visão integrada do <b>Desenvolvimento Full Stack</b>.
+        Ao adentrar o mundo da <b>programação</b>, minhas habilidades em <b>Node.js</b> e <b>TypeScript</b> se tornaram pilares. No meu primeiro emprego, tive a oportunidade de liderar o desenvolvimento <b>front-end</b> e também contribuir com o <b>back-end</b>, uma experiência valiosa que me proporcionou uma visão integrada do <b>Desenvolvimento Full Stack</b>.
       </motion.p>
 
       <motion.p

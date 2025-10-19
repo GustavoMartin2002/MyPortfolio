@@ -22,14 +22,14 @@ export const resumeTechList: ResumeTechModel[] = [
     link: 'https://nodejs.org/',
   },
   {
-    name: 'Next.js',
-    image: '/techStack/nextjs.svg',
-    link: 'https://nextjs.org/',
+    name: 'React.js',
+    image: '/techStack/react.svg',
+    link: 'https://react.dev/',
   },
   {
-    name: 'NestJS',
-    image: '/techStack/nestjs.svg',
-    link: 'https://nestjs.com/',
+    name: '.NET',
+    image: '/techStack/dotnet-core.svg',
+    link: 'https://dotnet.microsoft.com/apps/aspnet',
   },
   {
     name: 'AWS',

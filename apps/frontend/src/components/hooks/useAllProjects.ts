@@ -3,37 +3,43 @@ import { apiFetch } from "../../../service/api";
 import { useEffect, useState } from "react";
 
 type ProjectData = Pick<ProjectModel, "_id" | "name" | "categorie" | "image" | "date" | "technologies" | "link">;
+interface apiResponse {
+  data: ProjectData[];
+  currentPage: number;
+  totalPages: number;
+  totalProjects: number;
+}
 
 function useAllProjects() {
   const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   
   useEffect(()=> {
     async function fetchProjectFilter() {
       try {
-        const data = apiFetch<ProjectData[]>('projects', {
-          method: 'GET'
+        const response = await apiFetch<apiResponse>(`projects?offset=${currentPage}&limit=6`, {
+          method: 'GET',
         });
-
-        const sortProjects = [...(await data)].sort((a, b) => {
-          const dateA = new Date(a.date);
-          const dateB = new Date(b.date);
-
-          return dateB.getTime() - dateA.getTime();
-        });
-
-        setProjects(sortProjects);
-        setLoading(false);
+        setProjects(response.data);
+        setTotalPages(response.totalPages);
       } catch (err: unknown) {
-        setError(err as string);
+        // err instanceof Error ? setError(err.message) : setError("Ocorreu um erro desconhecido.");
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("Ocorreu um erro desconhecido.");
+        }
+      } finally {
         setLoading(false);
       }
     }
     fetchProjectFilter();
-  }, []);
+  }, [currentPage]);
 
-  return { projects, loading, error };
+  return { projects, loading, error, totalPages, currentPage, setCurrentPage };
 }
 
 export default useAllProjects;

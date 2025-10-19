@@ -58,19 +58,19 @@ export default function EducationExperience() {
         className="flex flex-col justify-center bg-[#00000050] rounded-lg p-5 w-[50%] min-h-[30vh]
         max-xl:w-full"
       >
-        <ul className="gap-5 px-5 max-sm:px-2">
+        <ul className="px-5 max-sm:px-2">
           { experiences.map((experience) => (
-            <li key={experience.id}>
+            <li className="mb-5" key={experience.id}>
               <h1
-                className="text-xl font-semibold
+                className="text-xl font-semibold text-blue
                 max-lg:text-lg max-sm:text-xs"
               >
                 {experience.title}
               </h1>
               <time className="text-base max-sm:text-xs">{experience.year}</time>
-              <p className="text-base font-light my-3 max-sm:text-xs">{experience.description}</p>
-              <span className="font-bold max-sm:text-xs">Tech Stack: </span>
-              <span className="max-sm:text-xs">{experience.techStack.join(", ")}</span>
+              <p className="text-base font-light my-2 max-sm:text-xs">{experience.description}</p>
+              <span className="font-bold max-sm:text-xs">TechStack: </span>
+              <span className="font-mono max-sm:text-xs">{experience.techStack.join(", ")}</span>
             </li>
           )) }
         </ul>
